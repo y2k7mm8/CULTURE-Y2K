@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Terminator";
+  src: url("./assets/fonts/terminatorcyr_semi_expandedbold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Planet";
+  src: url("./assets/fonts/planet.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+:root {
+  --font-doto: "Terminator", sans-serif;
+  --y2k-cyan: #00f0ff;
+  --y2k-pink: #ff4bd6;
+}
+
+body {
+  font-family: var(--font-doto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+.title-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0 3px,
+    transparent 3px 8px
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.neon-text {
+  color: white;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 0 8px rgba(0, 240, 255, 0.18),
+    0 0 16px rgba(255, 75, 214, 0.06);
+}
+
+.neon-accent {
+  background: linear-gradient(90deg, var(--y2k-cyan), var(--y2k-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.y2k-btn {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(0, 240, 255, 0.06);
+}
+
+.tile-gloss:after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: -10%;
+  width: 60%;
+  height: 120%;
+  transform: rotate(18deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0)
+  );
+  filter: blur(12px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Left nav / layout */
+.left-nav {
+  background: linear-gradient(
+    180deg,
+    rgba(40, 6, 50, 0.96),
+    rgba(10, 6, 30, 0.98)
+  );
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.main-panel {
+  border: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.right-panel .main-panel {
+  background: linear-gradient(180deg, #dfffd4, #e7ffd9);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* small responsive tweaks */
+@media (max-width: 768px) {
+  .left-nav,
+  .right-panel {
+    display: none !important;
+  }
+}
+
+/* Cursor trail styles */
+.cursor-trail {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+  /* no animation: elements are removed via JavaScript without CSS fade */
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+}
+
+/* removed keyframes: disappearance handled in JS (instant removal) */
+
+/* Custom single-image cursor */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.6));
+  transition: transform 80ms linear;
+  touch-action: none;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CursorTrail from "../components/CursorTrail";
 
 const bookmarks = [
@@ -144,7 +144,6 @@ export default function Internet() {
     "type a keyword and search the archive...",
   );
   const [dialStatus, setDialStatus] = useState("CONNECTED 56K");
-  const [constructionOn, setConstructionOn] = useState(true);
   const [siteOfMoment, setSiteOfMoment] = useState(bookmarks[1]);
   const [showBrokenOnly, setShowBrokenOnly] = useState(false);
 
@@ -169,20 +168,15 @@ export default function Internet() {
       setSiteOfMoment(random);
     }, 4200);
 
-    const constructionInterval = setInterval(() => {
-      setConstructionOn((prev) => !prev);
-    }, 900);
-
     return () => {
       clearInterval(blinkInterval);
       clearInterval(stampInterval);
       clearInterval(siteInterval);
-      clearInterval(constructionInterval);
     };
   }, []);
 
   useEffect(() => {
-    const onKeyDown = (e) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       const key = e.key.toLowerCase();
 
       if (key === "1") setStatusText("ENTERING PERSONAL HOMEPAGE ZONE");
@@ -357,7 +351,7 @@ export default function Internet() {
         }
       `}</style>
 
-      <div className="internet-shell mx-auto max-w-[1120px] overflow-hidden border border-black bg-[#efe8d6] font-[Courier_New]">
+      <div className="internet-shell mx-auto max-w-280 overflow-hidden border border-black bg-[#efe8d6] font-[Courier_New]">
         <div className="border-b-2 border-black bg-[#d4cdbd] px-4 py-2">
           <div className="flex flex-wrap items-center justify-between gap-2 text-[12px] uppercase tracking-[0.2em]">
             <span>internet archive zone / personal web / 1998-2008</span>

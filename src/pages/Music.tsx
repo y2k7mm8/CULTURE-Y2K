@@ -1,9 +1,7 @@
-import React from "react";
-
 export default function MusicSection() {
   return (
     <section className="bg-black px-6 py-8 text-white">
-      <div className="mx-auto max-w-[1280px] border border-white/10 bg-black">
+      <div className="mx-auto max-w-7xl border border-white/10 bg-black">
         <div className="border-b border-white/10 bg-[linear-gradient(90deg,rgba(255,0,153,0.2),rgba(0,255,255,0.15),rgba(0,0,0,1))] px-6 py-4">
           <p className="text-[11px] uppercase tracking-[0.35em] text-pink-300">
             culture y2k / archive / music sector / 2000-2009
@@ -12,14 +10,14 @@ export default function MusicSection() {
 
         <div className="grid gap-0 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="border-r border-white/10 p-6">
-            <div className="mb-8 border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-black to-fuchsia-500/10 p-6">
+            <div className="mb-8 border border-cyan-400/20 bg-linear-to-br from-cyan-500/10 via-black to-fuchsia-500/10 p-6">
               <p className="mb-2 text-[12px] uppercase tracking-[0.3em] text-cyan-300">
                 main transmission
               </p>
               <h1 className="mb-4 text-4xl font-black uppercase tracking-[0.14em] text-cyan-400">
                 music in the 2000s
               </h1>
-              <p className="max-w-[760px] text-[15px] leading-7 text-white/75">
+              <p className="max-w-190 text-[15px] leading-7 text-white/75">
                 The music of the 2000s was loud, glossy, emotional and highly
                 visual. It lived on CDs, music channels, burned discs, MP3
                 players, club speakers and fan-made internet pages. It was not
@@ -162,7 +160,7 @@ export default function MusicSection() {
               </div>
             </div>
 
-            <div className="border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-5">
+            <div className="border border-white/10 bg-linear-to-b from-white/10 to-transparent p-5">
               <p className="mb-2 text-[11px] uppercase tracking-[0.28em] text-pink-300">
                 final signal
               </p>

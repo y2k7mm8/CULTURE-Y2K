@@ -1,15 +1,19 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
+import CursorTrail from "../components/CursorTrail";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 export default function Layout() {
   return (
-    <div className="flex min-h-screen flex-col bg-black text-white">
+    <div className="min-h-screen text-white">
+      <CursorTrail />
       <Header />
 
-      <main className="flex-grow p-6">
-        <div className="mx-auto flex max-w-7xl gap-6">
-          <section className="flex-1">
+      <main className="mx-auto max-w-7xl px-4 py-6 lg:px-6">
+        <div className="page-grid">
+          <Sidebar />
+          <section className="min-w-0">
             <Outlet />
           </section>
         </div>

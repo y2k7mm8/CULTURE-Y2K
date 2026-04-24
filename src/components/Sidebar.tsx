@@ -1,45 +1,48 @@
 import { NavLink } from "react-router-dom";
 
-const items = [
-  "All About Us",
-  "Generation",
-  "Gear",
-  "Books",
-  "Board Game",
-  "Gotta Groove CD-Rom",
-  "International High",
-  "Memory Keeper",
+const shortcuts = [
+  { label: "Enter home hub", to: "/" },
+  { label: "Open soundboard", to: "/music" },
+  { label: "Style scanner", to: "/fashion" },
+  { label: "Toy archive", to: "/games" },
+  { label: "Web archive", to: "/internet" },
+  { label: "Project notes", to: "/about" },
 ];
 
 export default function Sidebar() {
   return (
-    <aside className="left-nav hidden w-74 shrink-0 flex-col gap-4 px-4 py-6 text-white md:flex">
-      <div className="mb-4 flex items-center gap-3">
-        <div className="rounded-full bg-linear-to-br from-pink-500 to-cyan-400 p-2 text-black text-lg font-bold">
-          Y2K
-        </div>
-        <div>
-          <div className="text-sm font-bold tracking-widest">Generation</div>
-          <div className="text-xs uppercase text-white/80">
-            Y2k FUCKING STYLE
-          </div>
-        </div>
+    <aside className="y2k-shell hidden rounded-[28px] p-4 lg:block">
+      <div className="chrome-panel mb-4 rounded-[24px] p-4">
+        <p className="micro-label mb-2">quick launch</p>
+        <div className="window-title text-xl text-white">CHROMA DECK</div>
+        <p className="mt-3 text-sm leading-6 text-white/65">
+          A compact navigator for all archive sectors and interactive modes.
+        </p>
       </div>
 
-      <nav className="flex flex-col gap-2">
-        {items.map((it) => (
+      <div className="space-y-3">
+        {shortcuts.map((item, index) => (
           <NavLink
-            to="#"
-            key={it}
-            className="block rounded-md px-3 py-2 text-sm font-semibold text-pink-300 hover:text-white hover:bg-white/5"
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              [
+                "chrome-panel block rounded-[20px] px-4 py-3 text-sm uppercase tracking-[0.18em] text-white/80 transition hover:-translate-y-0.5 hover:text-white",
+                isActive ? "border-cyan-300/50 bg-cyan-300/10" : "",
+              ].join(" ")
+            }
           >
-            {it}
+            <div className="mb-1 text-[10px] tracking-[0.32em] text-white/40">
+              0{index + 1}
+            </div>
+            {item.label}
           </NavLink>
         ))}
-      </nav>
+      </div>
 
-      <div className="mt-auto px-2 text-xs text-white/70">
-        © {new Date().getFullYear()}
+      <div className="chrome-panel mt-4 rounded-[22px] p-4 text-sm text-white/68">
+        <p className="micro-label mb-2">theme notes</p>
+        chrome highlights · glass panels · floating badges · bright cyan/pink glow
       </div>
     </aside>
   );

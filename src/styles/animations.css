@@ -1,0 +1,209 @@
+/* Glitch Animation */
+@keyframes glitch {
+  0%,
+  100% {
+    text-shadow:
+      -2px -2px #ff00ff,
+      2px 2px #00ffff;
+    transform: translate(0);
+  }
+  25% {
+    text-shadow:
+      2px 2px #ff00ff,
+      -2px -2px #00ffff;
+    transform: translate(2px, 2px);
+  }
+  50% {
+    text-shadow:
+      -2px 2px #ff00ff,
+      2px -2px #00ffff;
+    transform: translate(-2px, -2px);
+  }
+  75% {
+    text-shadow:
+      2px -2px #ff00ff,
+      -2px 2px #00ffff;
+    transform: translate(-2px, 2px);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* CRT Flicker */
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.crt-flicker {
+  animation: crt-flicker 0.15s infinite;
+}
+
+/* Pulse */
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.soft-pulse {
+  animation: soft-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Chroma shift */
+@keyframes chroma-shift {
+  0% {
+    text-shadow:
+      0 0 10px rgba(125, 249, 255, 0.5),
+      0 0 20px rgba(125, 249, 255, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 89, 209, 0.5),
+      0 0 20px rgba(255, 89, 209, 0.3);
+  }
+  100% {
+    text-shadow:
+      0 0 10px rgba(125, 249, 255, 0.5),
+      0 0 20px rgba(125, 249, 255, 0.3);
+  }
+}
+
+.chroma-text {
+  animation: chroma-shift 3s ease-in-out infinite;
+}
+
+/* Matrix Effect */
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.matrix-text {
+  animation: matrix-fall 8s linear infinite;
+  position: fixed;
+  z-index: 9999;
+  color: #00ff00;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* Blink Animation */
+@keyframes blink {
+  0%,
+  49%,
+  100% {
+    opacity: 1;
+  }
+  50%,
+  99% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Typing Effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing {
+  animation: typing 3.5s steps(40, end);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Cursor Blink */
+@keyframes cursor-blink {
+  0%,
+  49%,
+  100% {
+    border-right: 2px solid #fff;
+  }
+  50%,
+  99% {
+    border-right: 2px solid transparent;
+  }
+}
+
+.cursor {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Scale Up */
+@keyframes scale-up {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-up {
+  animation: scale-up 0.3s ease-out;
+}
+
+/* Slide In */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.4s ease-out;
+}
+
+/* Float */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}

@@ -8,7 +8,6 @@ interface WindowProps {
   onClose?: () => void;
   initialSize?: { width: number; height: number };
   children: React.ReactNode;
-  isResizable?: boolean;
   isDraggable?: boolean;
 }
 
@@ -19,7 +18,6 @@ export const Window: React.FC<WindowProps> = ({
   onClose,
   initialSize = { width: 400, height: 300 },
   children,
-  isResizable = true,
   isDraggable = true,
 }) => {
   const windowState = useWindowState(id, initialSize);

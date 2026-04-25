@@ -11,7 +11,7 @@ export const SnakeGame: React.FC = () => {
   const [snake, setSnake] = useState<Position[]>([{ x: 10, y: 10 }]);
   const [food, setFood] = useState<Position>({ x: 15, y: 15 });
   const [direction, setDirection] = useState<Direction>("RIGHT");
-  const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
+  const gameLoopRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const GRID_SIZE = 20;
   const TILE_SIZE = 20;

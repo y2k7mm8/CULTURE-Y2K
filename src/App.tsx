@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useState, useCallback } from "react";
+import { lazy, Suspense, useState, useCallback, useEffect } from "react";
 import Layout from "./layout/Layout";
 import { GlitchEffect } from "./components/features/Effects/GlitchEffect";
 import { CRTEffect } from "./components/features/Effects/CRTEffect";
 import { FriendsList } from "./components/features/Chat/FriendsList";
 import { SnakeGame } from "./components/features/Games/Snake";
 import { WinampPlayer } from "./components/features/Player/WinampPlayer";
+import { SplashIntro } from "./components/SplashIntro";
 import { useKonamiCode } from "./hooks/useKonamiCode";
 
 // Lazy load pages for code splitting
@@ -24,19 +25,53 @@ export default function App() {
   const [showChat, setShowChat] = useState(false);
   const [showGame, setShowGame] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
+  const [introComplete, setIntroComplete] = useState(false);
+
+  useEffect(() => {
+    // Reset sessionStorage to always show intro on page refresh
+    sessionStorage.removeItem("introShown");
+  }, []);
 
   const activateSecretMode = useCallback(() => {
     setSecretModeActive(true);
-    alert("🎮 SECRET MODE ACTIVATED! 🎮");
-    setTimeout(() => setSecretModeActive(false), 5000);
+    // Применяем стили напрямую на все элементы
+    document.body.style.filter =
+      "saturate(2.5) contrast(1.5) brightness(1.15) hue-rotate(5deg)";
+    document.body.style.imageRendering = "pixelated";
+    document.documentElement.classList.add("mode-8bit");
+    alert(
+      "🎮 SECRET MODE ACTIVATED! 🎮\n\nПиксельный режим включен на 8 секунд!",
+    );
+    setTimeout(() => {
+      setSecretModeActive(false);
+      document.body.style.filter = "";
+      document.body.style.imageRendering = "";
+      document.documentElement.classList.remove("mode-8bit");
+    }, 8000);
   }, []);
 
   useKonamiCode(activateSecretMode);
 
+  console.log("App render - introComplete:", introComplete);
+
+  // Show intro on first load
+  if (!introComplete) {
+    console.log("Rendering SplashIntro");
+    return (
+      <SplashIntro
+        onComplete={() => {
+          console.log("Intro completed, setting introComplete to true");
+          setIntroComplete(true);
+        }}
+      />
+    );
+  }
+
+  console.log("Rendering main app");
   return (
     <GlitchEffect>
       <CRTEffect enabled={crtEnabled} />
-      <div className={`${secretModeActive ? "8bit-mode" : ""}`}>
+      <div className={`${secretModeActive ? "mode-8bit" : ""}`}>
         <Routes>
           <Route element={<Layout />}>
             <Route

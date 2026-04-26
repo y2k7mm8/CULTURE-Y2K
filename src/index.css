@@ -18,6 +18,20 @@
 @import "tailwindcss";
 @import "./styles/animations.css";
 
+/* 8-bit Mode Global */
+html.mode-8bit {
+  filter: saturate(2.5) contrast(1.5) brightness(1.15) hue-rotate(5deg) !important;
+  image-rendering: pixelated !important;
+}
+
+body {
+  image-rendering: auto;
+}
+
+body * {
+  image-rendering: pixelated;
+}
+
 :root {
   --font-ui: "Terminator", sans-serif;
   --font-display: "Planet", sans-serif;
@@ -299,15 +313,35 @@ img {
 }
 
 /* 8-bit Mode */
-.8bit-mode {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  filter: saturate(2) contrast(1.2);
+.mode-8bit {
+  image-rendering: pixelated !important;
+  image-rendering: crisp-edges !important;
+  filter: saturate(2.5) contrast(1.5) brightness(1.1) !important;
+  font-family: "Courier New", monospace !important;
+  font-weight: bold !important;
+  text-rendering: geometricPrecision !important;
+  transform: scaleY(1.02);
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
 }
 
-.8bit-mode * {
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+.mode-8bit * {
+  image-rendering: pixelated !important;
+  image-rendering: crisp-edges !important;
+  font-family: "Courier New", monospace !important;
+  font-weight: bold !important;
+  text-rendering: geometricPrecision !important;
+}
+
+.mode-8bit button,
+.mode-8bit a,
+.mode-8bit input {
+  border-width: 3px !important;
+  border-style: solid !important;
 }
 
 /* CRT Effect */

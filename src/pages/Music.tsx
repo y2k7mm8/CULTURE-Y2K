@@ -40,8 +40,19 @@ export default function Music() {
 
     if (playingPreview) {
       // assign src lazily to avoid fetching heavy video until needed
-      if (!video.src) video.src = introVideo;
-      video.play().catch(() => setPlayingPreview(false));
+      if (!video.src) {
+        video.src = introVideo;
+        video.crossOrigin = "anonymous";
+        video.load();
+      }
+      // Small delay to ensure video is loaded before playing
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.error("Video play error:", error);
+          setPlayingPreview(false);
+        });
+      }
     } else {
       video.pause();
       // optionally release video resource when not playing
@@ -141,7 +152,8 @@ export default function Music() {
                 muted
                 playsInline
                 preload="none"
-                className="h-72 w-full rounded-[22px] object-cover"
+                className="h-72 w-full rounded-[22px] object-cover bg-black/50"
+                style={{ display: "block" }}
               />
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 <img

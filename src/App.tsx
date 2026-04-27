@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useState, useCallback, useEffect } from "react";
+import { lazy, Suspense, useState, useCallback } from "react";
 import Layout from "./layout/Layout";
 import { GlitchEffect } from "./components/features/Effects/GlitchEffect";
 import { CRTEffect } from "./components/features/Effects/CRTEffect";
@@ -25,11 +25,15 @@ export default function App() {
   const [showChat, setShowChat] = useState(false);
   const [showGame, setShowGame] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introComplete, setIntroComplete] = useState(() => {
+    // Check if intro was already shown in this session
+    return sessionStorage.getItem("introShown") === "true";
+  });
 
-  useEffect(() => {
-    // Reset sessionStorage to always show intro on page refresh
-    sessionStorage.removeItem("introShown");
+  const handleIntroComplete = useCallback(() => {
+    console.log("✅ Intro complete - marking as shown");
+    sessionStorage.setItem("introShown", "true");
+    setIntroComplete(true);
   }, []);
 
   const activateSecretMode = useCallback(() => {
@@ -52,22 +56,13 @@ export default function App() {
 
   useKonamiCode(activateSecretMode);
 
-  console.log("App render - introComplete:", introComplete);
-
-  // Show intro on first load
+  // Show intro on first load only
   if (!introComplete) {
-    console.log("Rendering SplashIntro");
-    return (
-      <SplashIntro
-        onComplete={() => {
-          console.log("Intro completed, setting introComplete to true");
-          setIntroComplete(true);
-        }}
-      />
-    );
+    console.log("🎬 Showing intro for first time");
+    return <SplashIntro onComplete={handleIntroComplete} />;
   }
 
-  console.log("Rendering main app");
+  console.log("📱 Rendering main app (intro already shown)");
   return (
     <GlitchEffect>
       <CRTEffect enabled={crtEnabled} />

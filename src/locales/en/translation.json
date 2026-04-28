@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Home",
+    "music": "Music",
+    "fashion": "Fashion",
+    "games": "Games",
+    "internet": "Internet",
+    "about": "About"
+  },
+  "header": {
+    "tagline": "glossy web memories · cyber chrome layout · interactive archive"
+  },
+  "home": {
+    "label": "home sector / upgraded structure",
+    "title": "a",
+    "titleHighlight": "Y2K chroma",
+    "titleEnd": "archive with more energy, more depth and more interaction",
+    "description": "I reworked the site direction toward a stronger chrome-glass look: clearer sectors, futuristic controls, modular cards and a more consistent archive mood.",
+    "glowMode": "glow mode: {{mode}}",
+    "glowModeHigh": "high",
+    "glowModeSoft": "soft",
+    "infoCards": "info cards: {{visibility}}",
+    "infoCardsVisible": "visible",
+    "infoCardsHidden": "hidden",
+    "stats": {
+      "label1": "06",
+      "title1": "sectors",
+      "desc1": "home / music / fashion / games / internet / about",
+      "label2": "12+",
+      "title2": "interactions",
+      "desc2": "toggles, randomizer, filters, quiz, player, search",
+      "label3": "24/7",
+      "title3": "visual mood",
+      "desc3": "chrome gradients, scanlines and neon accents"
+    },
+    "livePreview": "live preview",
+    "selectedSector": "selected sector",
+    "newFunctionality": "new functionality map",
+    "whatChanged": "what changed",
+    "sectors": {
+      "music": {
+        "title": "Music + players",
+        "year": "2000—2008",
+        "note": "CD cases, glossy videos, MP3 players and loud visual identities."
+      },
+      "internet": {
+        "title": "Internet scenes",
+        "year": "1999—2009",
+        "note": "Guestbooks, tiny buttons, fan shrines, portal chaos and browser toys."
+      },
+      "fashion": {
+        "title": "Chroma fashion",
+        "year": "2001—2007",
+        "note": "Metallic pink, sporty shades, translucent plastic and futuristic styling."
+      },
+      "games": {
+        "title": "Games + toys",
+        "year": "1998—2009",
+        "note": "Pocket pets, preloaders, browser loops and collectible digital moods."
+      }
+    },
+    "highlights": {
+      "h1": "chrome gradients",
+      "h2": "interactive panels",
+      "h3": "archive moodboard",
+      "h4": "custom sector filters",
+      "h5": "futuristic y2k navigation",
+      "h6": "glow-based ui system"
+    }
+  },
+  "music": {
+    "label": "music sector / soundboard edition",
+    "title": "sound, style and",
+    "titleHighlight": "visual noise",
+    "description": "This section now feels more like a media deck: mood filters, highlighted tracks, a video preview area and stronger chrome-glass presentation.",
+    "mediaPreview": "media preview",
+    "chromePlayer": "chrome player",
+    "pausePreview": "pause preview",
+    "playPreview": "play preview",
+    "selectedNote": "selected note",
+    "curated": "A curated mood tile for the era: image, movement and attitude tied directly to sound.",
+    "about": "2000s music was never just audio. It lived inside TV visuals, styling codes, posters, icons and burned playlists. This panel can later be expanded with real albums, clips or custom playlists.",
+    "moods": {
+      "all": "all",
+      "pop": "pop",
+      "dance": "dance",
+      "emo": "emo",
+      "rnb": "rnb"
+    }
+  },
+  "fashion": {
+    "label": "fashion sector / chroma scanner",
+    "title": "chrome, candy and",
+    "titleHighlight": "future-girl",
+    "titleEnd": "styling",
+    "description": "This section now has a clearer design tool feel: palette switching, styling cards and a stronger connection between fashion and technology.",
+    "palettes": {
+      "chrome": "chrome",
+      "candy": "candy",
+      "cyber": "cyber"
+    },
+    "pieces": {
+      "p1": "Metallic top",
+      "p1note": "Reflective, bright, almost plastic.",
+      "p2": "Tinted glasses",
+      "p2note": "A must-have for the futuristic silhouette.",
+      "p3": "Mini shoulder bag",
+      "p3note": "Compact, cute and color-heavy.",
+      "p4": "Sport mesh jacket",
+      "p4note": "Techwear energy before full techwear.",
+      "p5": "Low-rise denim",
+      "p5note": "One of the clearest era signifiers.",
+      "p6": "Silver sneakers",
+      "p6note": "Athletic shine mixed with sci-fi styling."
+    }
+  },
+  "games": {
+    "label": "games sector / archive mode",
+    "title": "browser toys, score loops and",
+    "titleHighlight": "tiny obsessions",
+    "description": "I kept the archive idea but made it cleaner: easier filtering, more consistent cards and stronger Y2K chrome presentation.",
+    "glitch": "glitch: {{status}}",
+    "on": "on",
+    "off": "off",
+    "keyboard": "keyboard: G = glitch / R = random artifact",
+    "selectedArtifact": "selected artifact",
+    "openDetail": "open detail",
+    "saved": "saved",
+    "save": "save",
+    "entries": {
+      "e1": "Pocket pet",
+      "e1note": "Tiny hardware with emotional maintenance.",
+      "e2": "Arcade portal",
+      "e2note": "Fast loops, badges and competition.",
+      "e3": "Flash minigame",
+      "e3note": "Small, expressive, instantly shareable.",
+      "e4": "Web toy page",
+      "e4note": "Interaction for mood rather than goals."
+    },
+    "filters": {
+      "all": "all",
+      "early": "early",
+      "mid": "mid",
+      "late": "late"
+    }
+  },
+  "internet": {
+    "label": "internet sector / archive mode",
+    "title": "personal pages, web rings and",
+    "titleHighlight": "lost links",
+    "description": "Your separate internet page now fits the whole project better: still nostalgic, but cleaner and more usable as a real archive interface.",
+    "searchPlaceholder": "search archive node...",
+    "brokenOnly": "broken only: {{status}}",
+    "randomJump": "random jump",
+    "visibleNodes": "visible nodes",
+    "connected": "connected to the handmade web",
+    "jumped": "jumped to random archive ring",
+    "nodes": {
+      "n1": "Flash portal",
+      "n2": "Guestbook alley",
+      "n3": "Shrine sector",
+      "n4": "Web toy district",
+      "n5": "Avatar suburb",
+      "n6": "Button exchange"
+    }
+  },
+  "about": {
+    "label": "about / project direction",
+    "title": "what was improved in the",
+    "titleHighlight": "site structure",
+    "description": "The site now behaves more like a designed digital archive instead of separate unrelated pages. Every sector still has its own character, but the system is more unified and much closer to a Y2K chroma aesthetic.",
+    "upgrades": {
+      "u1": "new layout shell with sidebar + modular sections",
+      "u2": "stronger Y2K chroma palette and chrome/glass surfaces",
+      "u3": "more interactive controls across pages",
+      "u4": "cleaner typography hierarchy",
+      "u5": "separate internet archive page integrated into the overall style",
+      "u6": "better consistency between all sectors"
+    }
+  },
+  "common": {
+    "open": "open",
+    "close": "close",
+    "loading": "Loading...",
+    "language": "Language",
+    "english": "English",
+    "spanish": "Español"
+  }
+}

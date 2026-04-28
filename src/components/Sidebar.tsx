@@ -11,8 +11,8 @@ const shortcuts = [
 
 export default function Sidebar() {
   return (
-    <aside className="y2k-shell hidden rounded-[28px] p-4 lg:block">
-      <div className="chrome-panel mb-4 rounded-[24px] p-4">
+    <aside className="y2k-shell hidden rounded-[28px] p-5 lg:block">
+      <div className="chrome-panel mb-4 rounded-[24px] p-5">
         <p className="micro-label mb-2">quick launch</p>
         <div className="window-title text-xl text-white">CHROMA DECK</div>
         <p className="mt-3 text-sm leading-6 text-white/65">
@@ -40,9 +40,10 @@ export default function Sidebar() {
         ))}
       </div>
 
-      <div className="chrome-panel mt-4 rounded-[22px] p-4 text-sm text-white/68">
+      <div className="chrome-panel mt-4 rounded-[22px] p-5 text-sm text-white/68">
         <p className="micro-label mb-2">theme notes</p>
-        chrome highlights · glass panels · floating badges · bright cyan/pink glow
+        chrome highlights · glass panels · floating badges · bright cyan/pink
+        glow
       </div>
     </aside>
   );

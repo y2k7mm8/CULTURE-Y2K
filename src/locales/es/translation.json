@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "music": "Música",
+    "fashion": "Moda",
+    "games": "Juegos",
+    "internet": "Internet",
+    "about": "Acerca de"
+  },
+  "header": {
+    "tagline": "memorias web brillantes · diseño de cromo cibernético · archivo interactivo"
+  },
+  "home": {
+    "label": "sector de inicio / estructura mejorada",
+    "title": "un archivo",
+    "titleHighlight": "Y2K chroma",
+    "titleEnd": "con más energía, profundidad e interacción",
+    "description": "Rediseñé la dirección del sitio hacia una estética más fuerte de cristal cromado: sectores más claros, controles futuristas, tarjetas modulares y un ambiente de archivo más consistente.",
+    "glowMode": "modo brillo: {{mode}}",
+    "glowModeHigh": "alto",
+    "glowModeSoft": "suave",
+    "infoCards": "tarjetas de info: {{visibility}}",
+    "infoCardsVisible": "visibles",
+    "infoCardsHidden": "ocultas",
+    "stats": {
+      "label1": "06",
+      "title1": "sectores",
+      "desc1": "inicio / música / moda / juegos / internet / acerca de",
+      "label2": "12+",
+      "title2": "interacciones",
+      "desc2": "alternadores, generador aleatorio, filtros, cuestionario, reproductor, búsqueda",
+      "label3": "24/7",
+      "title3": "ambiente visual",
+      "desc3": "gradientes de cromo, líneas de exploración y acentos de neón"
+    },
+    "livePreview": "vista previa en vivo",
+    "selectedSector": "sector seleccionado",
+    "newFunctionality": "mapa de nueva funcionalidad",
+    "whatChanged": "qué cambió",
+    "sectors": {
+      "music": {
+        "title": "Música + reproductores",
+        "year": "2000—2008",
+        "note": "Cajas de CD, vídeos brillantes, reproductores MP3 e identidades visuales potentes."
+      },
+      "internet": {
+        "title": "Escenas de Internet",
+        "year": "1999—2009",
+        "note": "Libros de visitas, botones pequeños, santuarios de aficiones, caos de portales y juguetes del navegador."
+      },
+      "fashion": {
+        "title": "Moda de cromo",
+        "year": "2001—2007",
+        "note": "Rosa metálico, tonos deportivos, plástico transparente y estilo futurista."
+      },
+      "games": {
+        "title": "Juegos + juguetes",
+        "year": "1998—2009",
+        "note": "Mascotas de bolsillo, precargadores, bucles de navegador y estados de ánimo digitales coleccionables."
+      }
+    },
+    "highlights": {
+      "h1": "gradientes de cromo",
+      "h2": "paneles interactivos",
+      "h3": "tablero de estado de ánimo del archivo",
+      "h4": "filtros de sector personalizados",
+      "h5": "navegación futurista y2k",
+      "h6": "sistema de interfaz basado en brillo"
+    }
+  },
+  "music": {
+    "label": "sector de música / edición de tablero",
+    "title": "sonido, estilo y",
+    "titleHighlight": "ruido visual",
+    "description": "Esta sección ahora se parece más a una plataforma de medios: filtros de estado de ánimo, pistas destacadas, un área de vista previa de vídeo y una presentación más fuerte de cristal cromado.",
+    "mediaPreview": "vista previa de medios",
+    "chromePlayer": "reproductor de cromo",
+    "pausePreview": "pausar vista previa",
+    "playPreview": "reproducir vista previa",
+    "selectedNote": "nota seleccionada",
+    "curated": "Una baldosa de estado de ánimo seleccionada para la era: imagen, movimiento y actitud vinculados directamente al sonido.",
+    "about": "La música de los 2000 nunca fue solo audio. Vivía en visuals de televisión, códigos de estilo, pósteres, iconos y listas de reproducción grabadas. Este panel puede expandirse más adelante con álbumes reales, clips o listas de reproducción personalizadas.",
+    "moods": {
+      "all": "todos",
+      "pop": "pop",
+      "dance": "danza",
+      "emo": "emo",
+      "rnb": "rnb"
+    }
+  },
+  "fashion": {
+    "label": "sector de moda / escáner de cromo",
+    "title": "cromo, caramelo y estilo",
+    "titleHighlight": "futurista",
+    "titleEnd": "",
+    "description": "Esta sección ahora tiene una sensación más clara de herramienta de diseño: cambio de paleta, tarjetas de estilo y una conexión más fuerte entre moda y tecnología.",
+    "palettes": {
+      "chrome": "cromo",
+      "candy": "caramelo",
+      "cyber": "cibernético"
+    },
+    "pieces": {
+      "p1": "Top metálico",
+      "p1note": "Reflectante, brillante, casi plástico.",
+      "p2": "Gafas de color",
+      "p2note": "Imprescindible para la silueta futurista.",
+      "p3": "Mini bolso de hombro",
+      "p3note": "Compacto, lindo y con muchos colores.",
+      "p4": "Chaqueta deportiva de malla",
+      "p4note": "Energía de techwear antes del techwear completo.",
+      "p5": "Jeans de cintura baja",
+      "p5note": "Uno de los indicadores de era más claros.",
+      "p6": "Zapatillas plateadas",
+      "p6note": "Brillo atlético mezclado con estilo de ciencia ficción."
+    }
+  },
+  "games": {
+    "label": "sector de juegos / modo archivo",
+    "title": "juguetes del navegador, bucles de puntuación y",
+    "titleHighlight": "pequeñas obsesiones",
+    "description": "Mantuve la idea del archivo pero la hice más limpia: filtrado más fácil, tarjetas más consistentes y una presentación de cromo Y2K más fuerte.",
+    "glitch": "glitch: {{status}}",
+    "on": "activo",
+    "off": "inactivo",
+    "keyboard": "teclado: G = glitch / R = artefacto aleatorio",
+    "selectedArtifact": "artefacto seleccionado",
+    "openDetail": "abrir detalle",
+    "saved": "guardado",
+    "save": "guardar",
+    "entries": {
+      "e1": "Mascota de bolsillo",
+      "e1note": "Hardware pequeño con mantenimiento emocional.",
+      "e2": "Portal de arcade",
+      "e2note": "Bucles rápidos, insignias y competencia.",
+      "e3": "Minijuego Flash",
+      "e3note": "Pequeño, expresivo, instantáneamente compartible.",
+      "e4": "Página de juguete web",
+      "e4note": "Interacción por estado de ánimo en lugar de objetivos."
+    },
+    "filters": {
+      "all": "todos",
+      "early": "temprano",
+      "mid": "medio",
+      "late": "tarde"
+    }
+  },
+  "internet": {
+    "label": "sector de internet / modo archivo",
+    "title": "páginas personales, anillos web y",
+    "titleHighlight": "enlaces perdidos",
+    "description": "Tu página separada de internet ahora se ajusta mejor a todo el proyecto: todavía nostálgica, pero más limpia y más utilizable como una interfaz de archivo real.",
+    "searchPlaceholder": "buscar nodo de archivo...",
+    "brokenOnly": "solo roto: {{status}}",
+    "randomJump": "salto aleatorio",
+    "visibleNodes": "nodos visibles",
+    "connected": "conectado a la web hecha a mano",
+    "jumped": "saltó a un anillo de archivo aleatorio",
+    "nodes": {
+      "n1": "Portal Flash",
+      "n2": "Callejón del libro de visitas",
+      "n3": "Sector santuario",
+      "n4": "Distrito de juguetes web",
+      "n5": "Suburbio de avatares",
+      "n6": "Intercambio de botones"
+    }
+  },
+  "about": {
+    "label": "acerca de / dirección del proyecto",
+    "title": "qué fue mejorado en la",
+    "titleHighlight": "estructura del sitio",
+    "description": "El sitio ahora se comporta más como un archivo digital diseñado en lugar de páginas separadas no relacionadas. Cada sector mantiene su propio carácter, pero el sistema es más unificado y mucho más cercano a la estética Y2K chroma.",
+    "upgrades": {
+      "u1": "nuevo shell de diseño con barra lateral + secciones modulares",
+      "u2": "paleta Y2K chroma más fuerte y superficies de cromo/cristal",
+      "u3": "controles más interactivos en todas las páginas",
+      "u4": "jerarquía tipográfica más limpia",
+      "u5": "página de archivo de internet separada integrada en el estilo general",
+      "u6": "mejor consistencia entre todos los sectores"
+    }
+  },
+  "common": {
+    "open": "abrir",
+    "close": "cerrar",
+    "loading": "Cargando...",
+    "language": "Idioma",
+    "english": "English",
+    "spanish": "Español"
+  }
+}

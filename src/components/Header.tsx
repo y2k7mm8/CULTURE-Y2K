@@ -1,28 +1,50 @@
 import { NavLink } from "react-router-dom";
-
-const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/music", label: "Music" },
-  { to: "/fashion", label: "Fashion" },
-  { to: "/games", label: "Games" },
-  { to: "/internet", label: "Internet" },
-  { to: "/about", label: "About" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
+  const { t, i18n } = useTranslation();
+
+  const navItems = [
+    { to: "/", label: t("nav.home") },
+    { to: "/music", label: t("nav.music") },
+    { to: "/fashion", label: t("nav.fashion") },
+    { to: "/games", label: t("nav.games") },
+    { to: "/internet", label: t("nav.internet") },
+    { to: "/about", label: t("nav.about") },
+  ];
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "en" ? "es" : "en";
+    i18n.changeLanguage(newLang);
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#060814]/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-4 lg:px-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="micro-label mb-2">culture y2k / chroma archive / 1999—2009</p>
-            <NavLink to="/" className="window-title text-3xl text-white md:text-4xl">
+            <p className="micro-label mb-2">
+              culture y2k / chroma archive / 1999—2009
+            </p>
+            <NavLink
+              to="/"
+              className="window-title text-3xl text-white md:text-4xl"
+            >
               CULTURE <span className="chroma-text">Y2K</span>
             </NavLink>
           </div>
 
-          <div className="chrome-panel rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-white/70">
-            glossy web memories · cyber chrome layout · interactive archive
+          <div className="flex items-center gap-3">
+            <div className="chrome-panel rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-white/70">
+              {t("header.tagline")}
+            </div>
+            <button
+              onClick={toggleLanguage}
+              className="y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-white/88 hover:border-cyan-300/50 hover:bg-cyan-300/10"
+              title={t("common.language")}
+            >
+              {i18n.language.toUpperCase()}
+            </button>
           </div>
         </div>
 
@@ -34,7 +56,9 @@ export default function Header() {
               className={({ isActive }) =>
                 [
                   "y2k-button rounded-full px-4 py-3 text-center text-[12px] uppercase tracking-[0.24em] text-white/88",
-                  isActive ? "soft-pulse border-cyan-300/50 bg-cyan-300/10" : "",
+                  isActive
+                    ? "soft-pulse border-cyan-300/50 bg-cyan-300/10"
+                    : "",
                 ].join(" ")
               }
             >

@@ -168,18 +168,6 @@ export default function Games() {
                         {t(entry.titleKey)}
                       </h3>
                     </div>
-                    <button
-                      onClick={() =>
-                        setSaved((prev) =>
-                          prev.includes(entry.id)
-                            ? prev.filter((id) => id !== entry.id)
-                            : [...prev, entry.id],
-                        )
-                      }
-                      className="y2k-button rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-white"
-                    >
-                      {isSaved ? t("games.saved") : t("games.save")}
-                    </button>
                   </div>
                   <p className="mt-3 text-sm leading-6 text-white/70">
                     {t(entry.noteKey)}

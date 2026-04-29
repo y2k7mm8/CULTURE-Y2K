@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <div className="space-y-5">
       <section className="y2k-shell rounded-[34px] p-5 md:p-7">
-        <div className="grid gap-5 xl:grid-cols-[1.2fr_0.8fr]">
+        <div className=" gap-5 xl:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-5">
             <div className="chrome-panel rounded-[28px] p-5 md:p-7">
               <p className="micro-label mb-3">{t("home.label")}</p>
@@ -130,55 +130,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          <div className="chrome-panel rounded-[30px] p-5 md:p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <div>
-                <p className="micro-label mb-2">{t("home.livePreview")}</p>
-                <h2 className="window-title text-2xl text-white">
-                  {t("home.selectedSector")}
-                </h2>
-              </div>
-              <div className="flex gap-2">
-                <span className="glow-dot h-3 w-3 rounded-full bg-cyan-300 text-cyan-300" />
-                <span className="glow-dot h-3 w-3 rounded-full bg-pink-300 text-pink-300" />
-                <span className="glow-dot h-3 w-3 rounded-full bg-lime-200 text-lime-200" />
-              </div>
-            </div>
-
-            <div
-              className={`overflow-hidden rounded-[24px] ${powerMode ? "soft-pulse" : ""}`}
-            >
-              <img
-                loading="lazy"
-                src={selected.image}
-                alt={t(selected.titleKey)}
-                className="h-72 w-full object-cover"
-              />
-            </div>
-
-            <div className="mt-4 space-y-3">
-              <div className="text-sm uppercase tracking-[0.28em] text-cyan-200">
-                {selected.year}
-              </div>
-              <div className="window-title text-2xl text-white">
-                {t(selected.titleKey)}
-              </div>
-              <p className="text-sm leading-6 text-white/70">
-                {t(selected.noteKey)}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {selected.statsKeys.map((item) => (
-                  <span
-                    key={item}
-                    className="chrome-chip rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/80"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -221,12 +172,6 @@ export default function Home() {
                       {t(sector.titleKey)}
                     </h3>
                   </div>
-                  <button
-                    onClick={() => setActiveSector(sector.id)}
-                    className="y2k-button rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-white/90"
-                  >
-                    {t("common.open")}
-                  </button>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-white/68">
                   {t(sector.noteKey)}

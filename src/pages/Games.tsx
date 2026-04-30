@@ -1,8 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import toysImg from "../assets/img/toys.png";
-import tvImg from "../assets/img/tv.png";
-import techImg from "../assets/img/tech.png";
 
 interface Toy {
   id: number;
@@ -82,7 +79,7 @@ export default function Games() {
   return (
     <div className="space-y-5">
       <section className="y2k-shell rounded-[32px] p-5 md:p-6">
-        <div className="grid gap-5 xl:grid-cols-[1fr_0.9fr]">
+        <div className=" gap-5 xl:grid-cols-[1fr_0.9fr]">
           <div
             className={`chrome-panel rounded-[28px] p-6 ${glitchOn ? "soft-pulse" : ""}`}
           >
@@ -125,26 +122,6 @@ export default function Games() {
                 {randomPulse}
               </p>
             )}
-          </div>
-
-          <div className="chrome-panel rounded-[28px] p-5">
-            <img
-              loading="lazy"
-              src={toysImg}
-              alt="toys"
-              className="h-72 w-full rounded-[22px] object-cover"
-            />
-            <div className="mt-4 flex flex-wrap gap-3">
-              {[tvImg, techImg].map((img, idx) => (
-                <img
-                  loading="lazy"
-                  key={idx}
-                  src={img}
-                  alt="archive visual"
-                  className="h-28 flex-1 rounded-[18px] object-cover"
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>

@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import tvImg from "../assets/img/tv.png";
-import techImg from "../assets/img/tech.png";
-import introVideo from "../assets/music/intro.mp4";
+import introVideo from "../assets/music/intrrro.mp4";
 
 interface Track {
   artistKey: string;
@@ -170,20 +168,6 @@ export default function Music() {
                 className="h-72 w-full rounded-[22px] object-cover bg-black/50"
                 style={{ display: "block" }}
               />
-              <div className="mt-4 grid gap-3 md:grid-cols-2">
-                <img
-                  loading="lazy"
-                  src={tvImg}
-                  alt="music collage"
-                  className="h-40 w-full rounded-[20px] object-cover"
-                />
-                <img
-                  loading="lazy"
-                  src={techImg}
-                  alt="tech collage"
-                  className="h-40 w-full rounded-[20px] object-cover"
-                />
-              </div>
             </div>
 
             <div className="chrome-panel rounded-[26px] p-5">

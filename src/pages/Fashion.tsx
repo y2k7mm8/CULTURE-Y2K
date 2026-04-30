@@ -1,8 +1,5 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import y2kImg from "../assets/img/y2k.png";
-import phoneImg from "../assets/img/phone.png";
-import techImg from "../assets/img/tech.png";
 
 const palettes = {
   chrome: ["#7DF9FF", "#9EAFFF", "#FF7BEA"],
@@ -70,7 +67,7 @@ export default function Fashion() {
   return (
     <div className="space-y-5">
       <section className="y2k-shell rounded-[32px] p-5 md:p-6">
-        <div className="grid gap-5 xl:grid-cols-[1fr_1fr]">
+        <div className="  gap-5 xl:grid-cols-[1fr_1fr]">
           <div className="chrome-panel rounded-[28px] p-6">
             <p className="micro-label mb-3">{t("fashion.label")}</p>
             <h1 className="window-title text-4xl text-white md:text-5xl">
@@ -121,18 +118,6 @@ export default function Fashion() {
               ))}
             </div>
           </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {[y2kImg, phoneImg, techImg].map((img, idx) => (
-              <img
-                loading="lazy"
-                key={`${img}-${idx}`}
-                src={img}
-                alt="fashion archive"
-                className={`rounded-[24px] object-cover ${idx === 0 ? "md:col-span-2 h-60" : "h-44"}`}
-              />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -140,7 +125,7 @@ export default function Fashion() {
         <p className="micro-label mb-3">style database</p>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {visiblePieces.map((piece) => (
-            <article key={piece.id} className="chrome-panel rounded-[24px] p-5">
+            <article key={piece.id} className="chrome-panel rounded-3xl p-5">
               <div className="mb-3 flex items-center justify-between gap-3">
                 <h3 className="window-title text-2xl text-white">
                   {t(piece.titleKey)}

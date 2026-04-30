@@ -1,8 +1,5 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import webImg from "../assets/img/web.png";
-import phoneImg from "../assets/img/phone.png";
-import techImg from "../assets/img/tech.png";
 
 interface Node {
   titleKey: string;
@@ -41,7 +38,7 @@ export default function Internet() {
   return (
     <div className="space-y-5">
       <section className="y2k-shell rounded-[32px] p-5 md:p-6">
-        <div className="grid gap-5 xl:grid-cols-[1fr_0.95fr]">
+        <div className="gap-5 xl:grid-cols-[1fr_0.95fr]">
           <div className="chrome-panel rounded-[28px] p-6">
             <p className="micro-label mb-3">{t("internet.label")}</p>
             <h1 className="window-title text-4xl text-white md:text-5xl">
@@ -78,18 +75,6 @@ export default function Internet() {
             <p className="mt-4 text-sm uppercase tracking-[0.2em] text-cyan-200">
               {status}
             </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {[webImg, phoneImg, techImg].map((img, idx) => (
-              <img
-                loading="lazy"
-                key={idx}
-                src={img}
-                alt="internet visual"
-                className={`rounded-[24px] object-cover ${idx === 0 ? "md:col-span-2 h-60" : "h-40"}`}
-              />
-            ))}
           </div>
         </div>
       </section>

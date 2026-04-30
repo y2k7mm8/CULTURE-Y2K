@@ -52,7 +52,6 @@ export default function Games() {
 
   const [era, setEra] = useState<(typeof filterKeys)[number]>("all");
   const [glitchOn, setGlitchOn] = useState(true);
-  const [saved, setSaved] = useState<number[]>([]);
   const [selected, setSelected] = useState<Toy>(entries[0]);
   const [randomPulse, setRandomPulse] = useState("");
 
@@ -130,7 +129,6 @@ export default function Games() {
         <div className="y2k-shell rounded-[30px] p-5">
           <div className="grid gap-4 overflow-hidden md:grid-cols-2">
             {visible.map((entry) => {
-              const isSaved = saved.includes(entry.id);
               return (
                 <article
                   key={entry.id}

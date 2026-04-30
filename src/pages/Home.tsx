@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import tvImg from "../assets/img/tv.png";
 import webImg from "../assets/img/web.png";
@@ -64,11 +64,6 @@ export default function Home() {
   const [activeSector, setActiveSector] = useState<string>(sectors[0].id);
   const [powerMode, setPowerMode] = useState(true);
   const [showFacts, setShowFacts] = useState(true);
-
-  const selected = useMemo(
-    () => sectors.find((sector) => sector.id === activeSector) ?? sectors[0],
-    [activeSector],
-  );
 
   return (
     <div className="space-y-5">

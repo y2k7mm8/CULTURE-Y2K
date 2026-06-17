@@ -86,7 +86,10 @@
       "dance": "dance",
       "emo": "emo",
       "rnb": "rnb"
-    }
+    },
+    "tracks": "tracks",
+    "favorites": "Favorites",
+    "random": "Random"
   },
   "fashion": {
     "label": "fashion sector / chroma scanner",
@@ -184,6 +187,39 @@
     "loading": "Loading...",
     "language": "Language",
     "english": "English",
-    "spanish": "Español"
+    "spanish": "Español",
+    "russian": "Русский",
+    "play": "Play",
+    "pause": "Pause",
+    "stop": "Stop",
+    "next": "Next",
+    "previous": "Previous",
+    "volume": "Volume",
+    "muted": "Muted",
+    "unmuted": "Unmuted",
+    "nowPlaying": "Now Playing",
+    "playlist": "Playlist",
+    "score": "Score",
+    "level": "Level",
+    "gameOver": "GAME OVER!",
+    "playAgain": "Play Again",
+    "highScore": "High Score",
+    "newHighScore": "New High Score!",
+    "secretMode": "SECRET MODE ACTIVATED!",
+    "secretModeDesc": "Pixel mode on for 8 seconds!",
+    "matrixRain": "Matrix Rain activated!",
+    "bsod": "CRITICAL ERROR: SYSTEM FAILURE",
+    "y2kBug": "Y2K BUG DETECTED!",
+    "dialup": "Connecting to Internet...",
+    "youveGotMail": "✉️ YOU'VE GOT MAIL!",
+    "easterEgg": "Easter egg activated!",
+    "crtOn": "CRT effect enabled",
+    "crtOff": "CRT effect disabled",
+    "glitchOn": "Glitch effect enabled",
+    "glitchOff": "Glitch effect disabled",
+    "connected": "Connected to Internet!",
+    "moves": "Moves",
+    "youWin": "You Win",
+    "reset": "Reset"
   }
 }

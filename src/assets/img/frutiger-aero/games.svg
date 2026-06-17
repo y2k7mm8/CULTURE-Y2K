@@ -1,0 +1,44 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C27B0"/>
+      <stop offset="50%" stop-color="#3F51B5"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <radialGradient id="gameGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9C27B0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#9C27B0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gameGlowFilter">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="75" cy="75" r="70" fill="url(#gameGlow)"/>
+
+  <g filter="url(#gameGlowFilter)">
+    <rect x="25" y="35" width="100" height="80" rx="15" fill="url(#gameGrad)"/>
+  </g>
+
+  <rect x="35" y="45" width="80" height="60" rx="10" fill="rgba(255,255,255,0.1)"/>
+
+  <circle cx="50" cy="70" r="15" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <circle cx="45" cy="65" rx="5" ry="3" fill="rgba(255,255,255,0.5)"/>
+
+  <rect x="75" y="55" width="12" height="30" rx="3" fill="rgba(255,255,255,0.3)"/>
+
+  <circle cx="100" cy="70" r="15" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <circle cx="95" cy="65" rx="5" ry="3" fill="rgba(255,255,255,0.5)"/>
+
+  <circle cx="60" cy="95" r="8" fill="rgba(76,175,80,0.6)"/>
+  <circle cx="90" cy="95" r="8" fill="rgba(244,67,54,0.6)"/>
+
+  <circle cx="30" cy="30" r="3" fill="#9C27B0" opacity="0.7"/>
+  <circle cx="120" cy="25" r="4" fill="#3F51B5" opacity="0.6"/>
+  <circle cx="125" cy="125" r="3" fill="#2196F3" opacity="0.7"/>
+  <circle cx="35" cy="130" r="2" fill="#9C27B0" opacity="0.5"/>
+</svg>

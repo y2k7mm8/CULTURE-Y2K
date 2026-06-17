@@ -1,13 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useState, useCallback } from "react";
+import { lazy, Suspense, useState, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Layout from "./layout/Layout";
 import { GlitchEffect } from "./components/features/Effects/GlitchEffect";
 import { CRTEffect } from "./components/features/Effects/CRTEffect";
 import { FriendsList } from "./components/features/Chat/FriendsList";
 import { SnakeGame } from "./components/features/Games/Snake";
+import { MemoryGame } from "./components/features/Games/MemoryGame";
 import { WinampPlayer } from "./components/features/Player/WinampPlayer";
 import { SplashIntro } from "./components/SplashIntro";
 import { useKonamiCode } from "./hooks/useKonamiCode";
+import { useEasterEggs } from "./hooks/useEasterEggs";
+import { MatrixRain, BSOD, DialUpSound, YouveGotMail } from "./components/features/EasterEggs";
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -17,18 +21,39 @@ const Fashion = lazy(() => import("./pages/Fashion"));
 const Games = lazy(() => import("./pages/Games"));
 const Internet = lazy(() => import("./pages/Internet"));
 
-const LoadingFallback = () => <div className="p-4 text-center">Loading...</div>;
+const LoadingFallback = () => {
+  const { t } = useTranslation();
+  return <div className="p-4 text-center">{t("common.loading")}</div>;
+};
 
 export default function App() {
-  const [crtEnabled, setCrtEnabled] = useState(false);
+  const { t } = useTranslation();
+  const [crtEnabled, setCrtEnabled] = useState(() => {
+    return localStorage.getItem("y2k-crt") === "true";
+  });
   const [secretModeActive, setSecretModeActive] = useState(false);
   const [showChat, setShowChat] = useState(false);
   const [showGame, setShowGame] = useState(false);
+  const [showMemory, setShowMemory] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
   const [introComplete, setIntroComplete] = useState(() => {
     // Check if intro was already shown in this session
     return sessionStorage.getItem("introShown") === "true";
   });
+
+  const {
+    activeEggs,
+    dialupComplete,
+    closeMatrix,
+    closeBSOD,
+    closeMail,
+    completeDialup,
+  } = useEasterEggs();
+
+  // Save CRT setting to localStorage
+  useEffect(() => {
+    localStorage.setItem("y2k-crt", crtEnabled.toString());
+  }, [crtEnabled]);
 
   const handleIntroComplete = useCallback(() => {
     console.log("✅ Intro complete - marking as shown");
@@ -44,7 +69,7 @@ export default function App() {
     document.body.style.imageRendering = "pixelated";
     document.documentElement.classList.add("mode-8bit");
     alert(
-      "🎮 SECRET MODE ACTIVATED! 🎮\n\nПиксельный режим включен на 8 секунд!",
+      `🎮 ${t("common.secretMode")} 🎮\n\n${t("common.secretModeDesc")}`,
     );
     setTimeout(() => {
       setSecretModeActive(false);
@@ -52,7 +77,7 @@ export default function App() {
       document.body.style.imageRendering = "";
       document.documentElement.classList.remove("mode-8bit");
     }, 8000);
-  }, []);
+  }, [t]);
 
   useKonamiCode(activateSecretMode);
 
@@ -123,7 +148,21 @@ export default function App() {
         {/* Y2K Features Overlay */}
         {showChat && <FriendsList />}
         {showGame && <SnakeGame />}
+        {showMemory && <MemoryGame />}
         {showPlayer && <WinampPlayer />}
+
+        {/* Easter Eggs */}
+        <MatrixRain isActive={activeEggs.matrixRain} onClose={closeMatrix} />
+        <BSOD isActive={activeEggs.bsod} onClose={closeBSOD} />
+        <DialUpSound isActive={activeEggs.dialup} onComplete={completeDialup} />
+        <YouveGotMail isActive={activeEggs.youveGotMail} onClose={closeMail} />
+
+        {/* Dialup complete notification */}
+        {dialupComplete && (
+          <div className="fixed top-4 right-4 z-50 bg-green-500/90 text-black px-4 py-2 rounded font-bold animate-pulse">
+            🌐 {t("common.connected")}
+          </div>
+        )}
 
         {/* Bottom Controls */}
         <div className="fixed bottom-0 right-0 z-40 flex gap-2 p-4 bg-black/20 rounded-tl-lg">
@@ -139,7 +178,14 @@ export default function App() {
             className="px-3 py-2 bg-purple-500/30 text-purple-200 border border-purple-300/50 rounded hover:bg-purple-500/50 text-xs"
             title="Open Snake Game"
           >
-            🎮 Game
+            🎮 Snake
+          </button>
+          <button
+            onClick={() => setShowMemory(!showMemory)}
+            className="px-3 py-2 bg-orange-500/30 text-orange-200 border border-orange-300/50 rounded hover:bg-orange-500/50 text-xs"
+            title="Open Memory Game"
+          >
+            🧠 Memory
           </button>
           <button
             onClick={() => setShowPlayer(!showPlayer)}
@@ -159,9 +205,12 @@ export default function App() {
 
         {/* Help Text */}
         <div className="fixed bottom-0 left-0 z-40 text-xs text-white/50 p-4">
-          <div>Press G = Glitch Effect</div>
-          <div>Press ↑↑↓↓←→←→BA = Secret Mode</div>
-          <div>Press C = CRT Effect</div>
+          <div>G = {t("common.glitchOn").replace(" enabled", "")}</div>
+          <div>↑↑↓↓←→←→BA = Secret Mode</div>
+          <div>C = {t("common.crtOn").replace(" enabled", "")}</div>
+          <div className="mt-1 text-white/30">
+            type "matrix" = Matrix Rain | "bsod" = Blue Screen | "mail" = You've Got Mail | "dial" = Dial-up
+          </div>
         </div>
       </div>
     </GlitchEffect>

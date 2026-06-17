@@ -1,0 +1,52 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#87CEEB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1E88E5" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="100" cy="100" r="90" fill="url(#bgGlow)"/>
+
+  <g filter="url(#glow)">
+    <ellipse cx="70" cy="80" rx="30" ry="15" fill="url(#leafGrad)" transform="rotate(-30 70 80)"/>
+    <ellipse cx="130" cy="90" rx="25" ry="12" fill="url(#leafGrad)" transform="rotate(20 130 90)"/>
+    <ellipse cx="100" cy="70" rx="20" ry="10" fill="#66BB6A" transform="rotate(0 100 70)"/>
+    <ellipse cx="80" cy="120" rx="28" ry="14" fill="url(#leafGrad)" transform="rotate(-45 80 120)"/>
+    <ellipse cx="120" cy="110" rx="22" ry="11" fill="url(#leafGrad)" transform="rotate(35 120 110)"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <circle cx="60" cy="60" r="8" fill="url(#waterGrad)" opacity="0.6"/>
+    <circle cx="140" cy="65" r="6" fill="url(#waterGrad)" opacity="0.5"/>
+    <circle cx="55" cy="140" r="7" fill="url(#waterGrad)" opacity="0.5"/>
+    <circle cx="145" cy="135" r="9" fill="url(#waterGrad)" opacity="0.6"/>
+    <circle cx="100" cy="50" r="5" fill="url(#waterGrad)" opacity="0.4"/>
+    <circle cx="100" cy="155" r="6" fill="url(#waterGrad)" opacity="0.5"/>
+  </g>
+
+  <g stroke="#1E88E5" stroke-width="1.5" fill="none" opacity="0.4">
+    <circle cx="100" cy="100" r="60"/>
+    <circle cx="100" cy="100" r="75"/>
+    <path d="M40 100 Q70 80 100 70 Q130 80 160 100"/>
+    <path d="M50 70 Q80 60 100 50 Q120 60 150 70"/>
+  </g>
+
+  <circle cx="100" cy="100" r="45" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <ellipse cx="90" cy="80" rx="15" ry="8" fill="rgba(255,255,255,0.3)"/>
+</svg>

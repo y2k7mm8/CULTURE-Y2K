@@ -1,0 +1,39 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fashionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E91E63"/>
+      <stop offset="50%" stop-color="#F48FB1"/>
+      <stop offset="100%" stop-color="#CE93D8"/>
+    </linearGradient>
+    <radialGradient id="fashionGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E91E63" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#E91E63" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="fashionGlowFilter">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="75" cy="75" r="70" fill="url(#fashionGlow)"/>
+
+  <g filter="url(#fashionGlowFilter)">
+    <ellipse cx="75" cy="60" rx="35" ry="30" fill="url(#fashionGrad)"/>
+    <ellipse cx="60" cy="95" rx="15" ry="8" fill="url(#fashionGrad)" transform="rotate(-20 60 95)"/>
+    <ellipse cx="90" cy="95" rx="15" ry="8" fill="url(#fashionGrad)" transform="rotate(20 90 95)"/>
+  </g>
+
+  <ellipse cx="75" cy="55" rx="20" ry="15" fill="rgba(255,255,255,0.2)"/>
+  <ellipse cx="70" cy="50" rx="8" ry="4" fill="rgba(255,255,255,0.5)"/>
+
+  <circle cx="75" cy="75" r="40" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+
+  <circle cx="35" cy="45" r="4" fill="#E91E63" opacity="0.7"/>
+  <circle cx="115" cy="40" r="3" fill="#F48FB1" opacity="0.6"/>
+  <circle cx="40" cy="125" r="3" fill="#CE93D8" opacity="0.6"/>
+  <circle cx="110" cy="130" r="4" fill="#E91E63" opacity="0.7"/>
+  <circle cx="75" cy="25" r="3" fill="#F48FB1" opacity="0.5"/>
+</svg>

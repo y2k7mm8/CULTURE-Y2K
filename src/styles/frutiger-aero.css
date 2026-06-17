@@ -1,0 +1,176 @@
+/* Frutiger Aero Visual Effects */
+
+.frutiger-aero-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(135, 206, 235, 0.15) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(76, 175, 80, 0.15) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(135, 206, 235, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.frutiger-aero-glow-green {
+  box-shadow:
+    0 0 20px rgba(76, 175, 80, 0.4),
+    0 0 40px rgba(76, 175, 80, 0.2),
+    0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.frutiger-aero-glow-blue {
+  box-shadow:
+    0 0 20px rgba(33, 150, 243, 0.4),
+    0 0 40px rgba(33, 150, 243, 0.2),
+    0 4px 16px rgba(33, 150, 243, 0.3);
+}
+
+.frutiger-aero-glow-purple {
+  box-shadow:
+    0 0 20px rgba(156, 39, 176, 0.4),
+    0 0 40px rgba(156, 39, 176, 0.2),
+    0 4px 16px rgba(156, 39, 176, 0.3);
+}
+
+.frutiger-aero-glow-pink {
+  box-shadow:
+    0 0 20px rgba(233, 30, 99, 0.4),
+    0 0 40px rgba(233, 30, 99, 0.2),
+    0 4px 16px rgba(233, 30, 99, 0.3);
+}
+
+.frutiger-aero-glow-orange {
+  box-shadow:
+    0 0 20px rgba(255, 152, 0, 0.4),
+    0 0 40px rgba(255, 152, 0, 0.2),
+    0 4px 16px rgba(255, 152, 0, 0.3);
+}
+
+.frutiger-aero-button {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(135, 206, 235, 0.3) 50%,
+    rgba(76, 175, 80, 0.2) 100%
+  );
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 16px rgba(135, 206, 235, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.frutiger-aero-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(135, 206, 235, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.frutiger-aero-card {
+  background: linear-gradient(
+    135deg,
+    rgba(135, 206, 235, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(76, 175, 80, 0.1) 100%
+  );
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 4px 20px rgba(135, 206, 235, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.frutiger-aero-icon {
+  filter: drop-shadow(0 4px 12px rgba(135, 206, 235, 0.4));
+  transition: all 0.3s ease;
+}
+
+.frutiger-aero-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 16px rgba(135, 206, 235, 0.6));
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.frutiger-aero-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.frutiger-aero-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.frutiger-aero-bubble {
+  position: absolute;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(135, 206, 235, 0.4),
+    rgba(30, 136, 229, 0.2)
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 4px 12px rgba(135, 206, 235, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  animation: float 5s ease-in-out infinite;
+}
+
+.frutiger-aero-water {
+  background: linear-gradient(
+    180deg,
+    rgba(135, 206, 235, 0.2) 0%,
+    rgba(33, 150, 243, 0.4) 50%,
+    rgba(13, 71, 161, 0.6) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.frutiger-aero-leaf {
+  background: linear-gradient(
+    135deg,
+    #66BB6A 0%,
+    #4CAF50 50%,
+    #2E7D32 100%
+  );
+  box-shadow:
+    0 4px 12px rgba(76, 175, 80, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}

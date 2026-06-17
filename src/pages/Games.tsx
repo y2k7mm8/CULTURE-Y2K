@@ -1,182 +1,364 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SnakeGame } from "../components/features/Games/Snake";
+import { MemoryGame } from "../components/features/Games/MemoryGame";
 
-interface Toy {
+interface GameCard {
   id: number;
-  titleKey: string;
-  era: "early" | "mid" | "late";
+  title: string;
+  description: string;
   year: number;
-  tagKey: string;
-  noteKey: string;
+  genre: string;
+  popularity: number;
+  emoji: string;
+  featured?: boolean;
 }
+
+const games: GameCard[] = [
+  {
+    id: 1,
+    title: "Snake",
+    description: "Легендарная игра Nokia 3310 - собирай яблоки и не врезайся в себя!",
+    year: 1997,
+    genre: "Аркада",
+    popularity: 100,
+    emoji: "🐍",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Memory Game",
+    description: "Проверь свою память! Найди все пары карт за минимальное время.",
+    year: 2000,
+    genre: "Головоломка",
+    popularity: 95,
+    emoji: "🧠",
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "The Sims",
+    description: "Симулятор жизни - создай своего персонажа и управляй его судьбой.",
+    year: 2000,
+    genre: "Симулятор",
+    popularity: 98,
+    emoji: "🏠",
+  },
+  {
+    id: 4,
+    title: "Tony Hawk's Pro Skater 2",
+    description: "Лучшая скейт-игра эпохи - трюки, парки и культовые треки.",
+    year: 2000,
+    genre: "Спорт",
+    popularity: 92,
+    emoji: "🛹",
+  },
+  {
+    id: 5,
+    title: "Grand Theft Auto III",
+    description: "Революционный 3D открытый мир, который изменил индустрию.",
+    year: 2001,
+    genre: "Экшн",
+    popularity: 99,
+    emoji: "🚗",
+  },
+  {
+    id: 6,
+    title: "Halo: Combat Evolved",
+    description: "FPS, который сделал Xbox популярным и стал иконикой жанра.",
+    year: 2001,
+    genre: "Шутер",
+    popularity: 97,
+    emoji: "🎯",
+  },
+  {
+    id: 7,
+    title: "World of Warcraft",
+    description: "MMORPG, которая стала культурным феноменом и привлекла миллионы.",
+    year: 2004,
+    genre: "MMORPG",
+    popularity: 96,
+    emoji: "⚔️",
+  },
+  {
+    id: 8,
+    title: "Half-Life 2",
+    description: "Технологический прорыв с гравитационной пушкой и реалистичной физикой.",
+    year: 2004,
+    genre: "Шутер",
+    popularity: 94,
+    emoji: "🔫",
+  },
+];
+
+const gamingFacts = [
+  "PS2 стала самой продаваемой консолью всех времен - 155 млн проданных единиц",
+  "Первый Winning Eleven (PES) вышел в 2001 году",
+  "Tamagotchi был популярен среди детей и подростков",
+  "GameBoy Advance был портативной консолью эпохи",
+  "Doom 3 был пугающим технологическим прорывом 2004 года",
+  "Слэшеры вроде Resident Evil 4 изменили хоррор-жанр",
+  "Сетевой гейминг с LAN партиями был культурой эпохи",
+  "Counter-Strike 1.6 был самым популярным FPS в киберспорте",
+];
 
 export default function Games() {
   const { t } = useTranslation();
 
-  const entries: Toy[] = [
-    {
-      id: 1,
-      titleKey: "games.entries.e1",
-      era: "early",
-      year: 1999,
-      tagKey: "games.entries.e1note",
-      noteKey: "games.entries.e1note",
-    },
-    {
-      id: 2,
-      titleKey: "games.entries.e2",
-      era: "mid",
-      year: 2004,
-      tagKey: "games.entries.e2note",
-      noteKey: "games.entries.e2note",
-    },
-    {
-      id: 3,
-      titleKey: "games.entries.e3",
-      era: "mid",
-      year: 2005,
-      tagKey: "games.entries.e3note",
-      noteKey: "games.entries.e3note",
-    },
-    {
-      id: 4,
-      titleKey: "games.entries.e4",
-      era: "late",
-      year: 2008,
-      tagKey: "games.entries.e4note",
-      noteKey: "games.entries.e4note",
-    },
-  ];
+  const [selectedGame, setSelectedGame] = useState<GameCard | null>(null);
+  const [filter, setFilter] = useState<"all" | "arcade" | "shooter" | "rpg" | "sports">("all");
+  const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
+  const [currentFact, setCurrentFact] = useState(0);
+  const [likeFact, setLikeFact] = useState(false);
+  const [playSnake, setPlaySnake] = useState(false);
+  const [playMemory, setPlayMemory] = useState(false);
+  const [highScoreSnake, setHighScoreSnake] = useState(0);
+  const [highScoreMemory, setHighScoreMemory] = useState(0);
 
-  const filterKeys = ["all", "early", "mid", "late"] as const;
-
-  const [era, setEra] = useState<(typeof filterKeys)[number]>("all");
-  const [glitchOn, setGlitchOn] = useState(true);
-  const [selected, setSelected] = useState<Toy>(entries[0]);
-  const [randomPulse, setRandomPulse] = useState("");
-
-  const visible = useMemo(() => {
-    if (era === "all") return entries;
-    return entries.filter((entry) => entry.era === era);
-  }, [era]);
-
+  // Load high scores from localStorage
   useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === "g") setGlitchOn((prev) => !prev);
-      if (event.key.toLowerCase() === "r") {
-        const random =
-          visible[Math.floor(Math.random() * visible.length)] ?? entries[0];
-        setSelected(random);
-        setRandomPulse(`artifact found: ${t(random.titleKey).toUpperCase()}`);
-      }
-    };
+    const snakeScore = localStorage.getItem('y2k-snake-highscore');
+    const memoryScore = localStorage.getItem('y2k-memory-highscore');
+    if (snakeScore) setHighScoreSnake(parseInt(snakeScore));
+    if (memoryScore) setHighScoreMemory(parseInt(memoryScore));
+  }, []);
 
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [visible, t]);
+  // Rotate gaming facts
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFact((prev) => (prev + 1) % gamingFacts.length);
+      setLikeFact(false);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const filteredGames = useMemo(() => {
+    let filtered = games;
+    if (showFeaturedOnly) {
+      filtered = filtered.filter(g => g.featured);
+    }
+    if (filter !== "all") {
+      filtered = filtered.filter(g => {
+        const genre = g.genre.toLowerCase();
+        return genre.includes(filter) || filter === "all";
+      });
+    }
+    return filtered;
+  }, [filter, showFeaturedOnly]);
 
   return (
     <div className="space-y-5">
+      {/* Header */}
       <section className="y2k-shell rounded-[32px] p-5 md:p-6">
-        <div className=" gap-5 xl:grid-cols-[1fr_0.9fr]">
-          <div
-            className={`chrome-panel rounded-[28px] p-6 ${glitchOn ? "soft-pulse" : ""}`}
-          >
-            <p className="micro-label mb-3">{t("games.label")}</p>
-            <h1 className="window-title text-4xl text-white md:text-5xl">
-              {t("games.title")}{" "}
-              <span className="chroma-text">{t("games.titleHighlight")}</span>
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-white/72">
-              {t("games.description")}
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {filterKeys.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => setEra(item)}
-                  className={`y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.25em] ${
-                    era === item
-                      ? "border-cyan-300/50 bg-cyan-300/10 text-cyan-100"
-                      : "text-white/80"
-                  }`}
-                >
-                  {t(`games.filters.${item}`)}
-                </button>
-              ))}
+        <div className="chrome-panel rounded-[28px] p-6">
+          <p className="micro-label mb-3">{t("games.label")}</p>
+          <h1 className="window-title text-4xl text-white md:text-5xl">
+            {t("games.title")}{" "}
+            <span className="chroma-text">{t("games.titleHighlight")}</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-8 text-white/72">
+            {t("games.description")}
+          </p>
+
+          {/* Playable Games Section */}
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <button
+              onClick={() => setPlaySnake(!playSnake)}
+              className={`chrome-panel p-5 rounded-2xl transition ${
+                playSnake ? "border-cyan-400/50 bg-cyan-500/20" : "hover:scale-105"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <div className="text-4xl mb-2">🐍</div>
+                  <h3 className="window-title text-2xl text-white">Snake</h3>
+                  <p className="text-sm text-white/70 mt-1">Легендарная игра Nokia</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs text-white/60 mb-1">HIGH SCORE</div>
+                  <div className="text-2xl font-bold text-cyan-300">{highScoreSnake}</div>
+                </div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setPlayMemory(!playMemory)}
+              className={`chrome-panel p-5 rounded-2xl transition ${
+                playMemory ? "border-purple-400/50 bg-purple-500/20" : "hover:scale-105"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div className="text-left">
+                  <div className="text-4xl mb-2">🧠</div>
+                  <h3 className="window-title text-2xl text-white">Memory</h3>
+                  <p className="text-sm text-white/70 mt-1">Игра на память</p>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs text-white/60 mb-1">BEST TIME</div>
+                  <div className="text-2xl font-bold text-purple-300">{highScoreMemory}s</div>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          {/* Filters */}
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["all", "arcade", "shooter", "rpg", "sports"].map((f) => (
               <button
-                onClick={() => setGlitchOn((prev) => !prev)}
-                className="y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-white/80"
+                key={f}
+                onClick={() => setFilter(f as any)}
+                className={`y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] ${
+                  filter === f
+                    ? "border-cyan-300/50 bg-cyan-300/20 text-cyan-100"
+                    : "text-white/70"
+                }`}
               >
-                {t("games.glitch", {
-                  status: glitchOn ? t("games.on") : t("games.off"),
-                })}
+                {f}
               </button>
-            </div>
-            <p className="mt-4 text-xs uppercase tracking-[0.3em] text-pink-200/70">
-              {t("games.keyboard")}
+            ))}
+            <button
+              onClick={() => setShowFeaturedOnly(!showFeaturedOnly)}
+              className={`y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] ${
+                showFeaturedOnly ? "border-pink-300/50 bg-pink-300/20 text-pink-100" : "text-white/70"
+              }`}
+            >
+              {showFeaturedOnly ? "★ Featured Only" : "All Games"}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Playable Games Overlay */}
+      {playSnake && (
+        <section className="y2k-shell rounded-[28px] p-4">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="window-title text-xl text-white">🐍 Snake Game</h3>
+            <button
+              onClick={() => setPlaySnake(false)}
+              className="px-3 py-1 bg-red-500/30 text-red-200 rounded-full text-sm hover:bg-red-500/50 transition"
+            >
+              ✕ Close
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <SnakeGame />
+          </div>
+        </section>
+      )}
+
+      {playMemory && (
+        <section className="y2k-shell rounded-[28px] p-4">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="window-title text-xl text-white">🧠 Memory Game</h3>
+            <button
+              onClick={() => setPlayMemory(false)}
+              className="px-3 py-1 bg-red-500/30 text-red-200 rounded-full text-sm hover:bg-red-500/50 transition"
+            >
+              ✕ Close
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <MemoryGame />
+          </div>
+        </section>
+      )}
+
+      {/* Gaming Fact */}
+      <section className="chrome-panel rounded-[24px] p-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1">
+            <p className="micro-label mb-2 text-purple-200">🎮 Факт эпохи</p>
+            <p className="text-base leading-7 text-white/90">
+              {gamingFacts[currentFact]}
             </p>
-            {randomPulse && (
-              <p className="mt-4 text-sm uppercase tracking-[0.22em] text-cyan-200">
-                {randomPulse}
+          </div>
+          <button
+            onClick={() => setLikeFact(!likeFact)}
+            className={`text-2xl transition ${likeFact ? "animate-bounce" : ""}`}
+          >
+            {likeFact ? "❤️" : "🤍"}
+          </button>
+        </div>
+        <button
+          onClick={() => setCurrentFact((prev) => (prev + 1) % gamingFacts.length)}
+          className="mt-3 text-xs text-white/60 hover:text-white/90 transition"
+        >
+          Следующий факт →
+        </button>
+      </section>
+
+      {/* Games Grid */}
+      <section className="y2k-shell rounded-[30px] p-5">
+        <div className="flex justify-between items-center mb-4">
+          <p className="micro-label">Games Database</p>
+          <p className="text-sm text-white/60">
+            {filteredGames.length} games
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {filteredGames.map((game) => (
+            <button
+              key={game.id}
+              onClick={() => setSelectedGame(game)}
+              className={`chrome-panel rounded-[22px] p-4 text-left transition ${
+                selectedGame?.id === game.id
+                  ? "border-cyan-300/50 bg-cyan-500/10 scale-105"
+                  : "hover:scale-105"
+              }`}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-3xl">{game.emoji}</span>
+                {game.featured && (
+                  <span className="text-yellow-300 text-lg">★</span>
+                )}
+              </div>
+              <h3 className="window-title text-lg text-white mb-1">{game.title}</h3>
+              <p className="text-xs text-white/60 mb-2">{game.year} • {game.genre}</p>
+              <div className="flex items-center gap-1">
+                <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-cyan-400 to-pink-400 transition-all duration-500"
+                    style={{ width: `${game.popularity}%` }}
+                  />
+                </div>
+                <span className="text-[10px] text-white/60">{game.popularity}%</span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Selected Game Details */}
+      {selectedGame && (
+        <section className="chrome-panel rounded-[30px] p-6">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <p className="micro-label mb-2">Selected Game</p>
+              <h2 className="window-title text-3xl text-white flex items-center gap-3">
+                {selectedGame.emoji} {selectedGame.title}
+              </h2>
+              <p className="mt-2 text-sm text-white/70">
+                {selectedGame.year} • {selectedGame.genre} • {selectedGame.popularity}% Popular
               </p>
-            )}
+            </div>
+            <button
+              onClick={() => setSelectedGame(null)}
+              className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-sm hover:bg-white/20 transition"
+            >
+              ✕ Close
+            </button>
           </div>
-        </div>
-      </section>
-
-      <section className="grid gap-4 xl:grid-cols-[1fr_0.9fr]">
-        <div className="y2k-shell rounded-[30px] p-5">
-          <div className="grid gap-4 overflow-hidden md:grid-cols-2">
-            {visible.map((entry) => {
-              return (
-                <article
-                  key={entry.id}
-                  className="chrome-panel rounded-[24px] p-5"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="micro-label mb-2">
-                        {entry.year} / {t(entry.tagKey)}
-                      </p>
-                      <h3 className="window-title text-2xl text-white">
-                        {t(entry.titleKey)}
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-white/70">
-                    {t(entry.noteKey)}
-                  </p>
-                  <button
-                    onClick={() => setSelected(entry)}
-                    className="y2k-button mt-4 rounded-full px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-white"
-                  >
-                    {t("games.openDetail")}
-                  </button>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="y2k-shell rounded-[30px] p-5">
-          <p className="micro-label mb-2">{t("games.selectedArtifact")}</p>
-          <h2 className="window-title text-3xl text-white">
-            {t(selected.titleKey)}
-          </h2>
-          <p className="mt-3 text-sm uppercase tracking-[0.22em] text-cyan-200">
-            {selected.year} · {t(selected.tagKey)}
+          <p className="text-base leading-7 text-white/90">
+            {selectedGame.description}
           </p>
-          <p className="mt-4 text-sm leading-7 text-white/70">
-            {t(selected.noteKey)} This panel can later expand into modal
-            windows, archive logs or animated object details.
-          </p>
-          <div className="chrome-panel mt-5 rounded-[22px] p-5 text-sm leading-6 text-white/72">
-            The new structure keeps the playful archive feeling but avoids the
-            clutter that made the page harder to read.
-          </div>
-        </div>
-      </section>
+          {selectedGame.featured && (
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/20 rounded-full">
+              <span className="text-yellow-300">★</span>
+              <span className="text-xs text-yellow-200">Featured Game - Available to Play!</span>
+            </div>
+          )}
+        </section>
+      )}
     </div>
   );
 }

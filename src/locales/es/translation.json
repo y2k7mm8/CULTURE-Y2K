@@ -1,124 +1,127 @@
 {
   "nav": {
     "home": "Inicio",
-    "music": "Musica",
+    "music": "Música",
     "fashion": "Moda",
     "games": "Juegos",
     "internet": "Internet",
-    "about": "Acerca de"
+    "about": "Sobre"
   },
   "header": {
-    "tagline": "memorias web brillantes · diseño de cromo cibernético · archivo interactivo"
+    "tagline": "recuerdos web brillantes · diseño cromo cibernético · archivo interactivo"
   },
   "home": {
-    "label": "sector de inicio / estructura mejorada",
+    "label": "sector inicio / estructura mejorada",
     "title": "un archivo",
     "titleHighlight": "Y2K chroma",
     "titleEnd": "con más energía, profundidad e interacción",
-    "description": "Rediseñé la dirección del sitio hacia una estética más fuerte de cristal cromado: sectores más claros, controles futuristas, tarjetas modulares y un ambiente de archivo más consistente.",
+    "description": "Rediseñé el sitio hacia una estética de cristal cromado más fuerte: sectores claros, controles futuristas, tarjetas modulares y un ambiente de archivo más consistente.",
     "glowMode": "modo brillo: {{mode}}",
     "glowModeHigh": "alto",
     "glowModeSoft": "suave",
-    "infoCards": "tarjetas de info: {{visibility}}",
+    "infoCards": "tarjetas info: {{visibility}}",
     "infoCardsVisible": "visibles",
     "infoCardsHidden": "ocultas",
     "stats": {
       "label1": "06",
       "title1": "sectores",
-      "desc1": "inicio / música / moda / juegos / internet / acerca de",
+      "desc1": "inicio / música / moda / juegos / internet / sobre",
       "label2": "12+",
       "title2": "interacciones",
-      "desc2": "alternadores, generador aleatorio, filtros, cuestionario, reproductor, búsqueda",
+      "desc2": "interruptores, aleatorio, filtros, quiz, reproductor, búsqueda",
       "label3": "24/7",
       "title3": "ambiente visual",
-      "desc3": "gradientes de cromo, líneas de exploración y acentos de neón"
+      "desc3": "gradientes cromo, líneas de escaneo y acentos neón"
     },
-    "livePreview": "vista previa en vivo",
+    "livePreview": "vista previa",
     "selectedSector": "sector seleccionado",
-    "newFunctionality": "mapa de nueva funcionalidad",
+    "newFunctionality": "mapa de funciones nuevas",
     "whatChanged": "qué cambió",
     "sectors": {
       "music": {
         "title": "Música + reproductores",
         "year": "2000—2008",
-        "note": "Cajas de CD, vídeos brillantes, reproductores MP3 e identidades visuales potentes."
+        "note": "Estuches CD, videos brillantes, reproductores MP3 e identidades visuales potentes."
       },
       "internet": {
-        "title": "Escenas de Internet",
+        "title": "Escenas de internet",
         "year": "1999—2009",
-        "note": "Libros de visitas, botones pequeños, santuarios de aficiones, caos de portales y juguetes del navegador."
+        "note": "Libros de visitas, botones pequeños, fan shrines, caos de portales y juguetes del navegador."
       },
       "fashion": {
-        "title": "Moda de cromo",
+        "title": "Moda chroma",
         "year": "2001—2007",
-        "note": "Rosa metálico, tonos deportivos, plástico transparente y estilo futurista."
+        "note": "Rosa metálico, tonos deportivos, plástico translúcido y estilo futurista."
       },
       "games": {
         "title": "Juegos + juguetes",
         "year": "1998—2009",
-        "note": "Mascotas de bolsillo, precargadores, bucles de navegador y estados de ánimo digitales coleccionables."
+        "note": "Mascotas de bolsillo, precargas, loops de navegador y estados de ánimo digitales coleccionables."
       }
     },
     "highlights": {
-      "h1": "gradientes de cromo",
+      "h1": "gradientes cromo",
       "h2": "paneles interactivos",
-      "h3": "tablero de estado de ánimo del archivo",
-      "h4": "filtros de sector personalizados",
-      "h5": "navegación futurista y2k",
-      "h6": "sistema de interfaz basado en brillo"
+      "h3": "moodboard de archivo",
+      "h4": "filtros personalizados",
+      "h5": "navegación futurista Y2K",
+      "h6": "sistema UI basado en brillo"
     }
   },
   "music": {
-    "label": "sector de música / edición de tablero",
+    "label": "sector música / consola de sonido",
     "title": "sonido, estilo y",
     "titleHighlight": "ruido visual",
-    "description": "Esta sección ahora se parece más a una plataforma de medios: filtros de estado de ánimo, pistas destacadas, un área de vista previa de vídeo y una presentación más fuerte de cristal cromado.",
-    "mediaPreview": "vista previa de medios",
-    "chromePlayer": "reproductor de cromo",
-    "pausePreview": "pausar vista previa",
-    "playPreview": "reproducir vista previa",
+    "description": "Esta sección ahora se siente más como un centro multimedia: filtros de ambiente, pistas destacadas, área de vista previa y presentación cromo-cristal más fuerte.",
+    "mediaPreview": "vista previa",
+    "chromePlayer": "reproductor cromo",
+    "pausePreview": "pausar",
+    "playPreview": "reproducir",
     "selectedNote": "nota seleccionada",
-    "curated": "Una baldosa de estado de ánimo seleccionada para la era: imagen, movimiento y actitud vinculados directamente al sonido.",
-    "about": "La música de los 2000 nunca fue solo audio. Vivía en visuals de televisión, códigos de estilo, pósteres, iconos y listas de reproducción grabadas. Este panel puede expandirse más adelante con álbumes reales, clips o listas de reproducción personalizadas.",
+    "curated": "Un tile de ambiente curado para la época: imagen, movimiento y actitud directamente ligados al sonido.",
+    "about": "La música de los 2000 nunca fue solo audio. Vivía en visuales de TV, códigos de estilo, pósters, iconos y playlists quemadas. Este panel puede expandirse más tarde con álbumes reales, clips o playlists personalizadas.",
     "moods": {
       "all": "todos",
       "pop": "pop",
-      "dance": "danza",
+      "dance": "dance",
       "emo": "emo",
       "rnb": "rnb"
-    }
+    },
+    "tracks": "pistas",
+    "favorites": "Favoritos",
+    "random": "Aleatorio"
   },
   "fashion": {
-    "label": "sector de moda / escáner de cromo",
-    "title": "cromo, caramelo y estilo",
+    "label": "sector moda / escáner cromo",
+    "title": "cromo, dulces y estilo",
     "titleHighlight": "futurista",
     "titleEnd": "",
-    "description": "Esta sección ahora tiene una sensación más clara de herramienta de diseño: cambio de paleta, tarjetas de estilo y una conexión más fuerte entre moda y tecnología.",
+    "description": "Esta sección ahora se siente más como una herramienta de diseño: cambio de paleta, tarjetas de estilo y conexión más fuerte entre moda y tecnología.",
     "palettes": {
       "chrome": "cromo",
-      "candy": "caramelo",
-      "cyber": "cibernético"
+      "candy": "dulce",
+      "cyber": "ciber"
     },
     "pieces": {
       "p1": "Top metálico",
       "p1note": "Reflectante, brillante, casi plástico.",
-      "p2": "Gafas de color",
+      "p2": "Lentes tintados",
       "p2note": "Imprescindible para la silueta futurista.",
       "p3": "Mini bolso de hombro",
-      "p3note": "Compacto, lindo y con muchos colores.",
-      "p4": "Chaqueta deportiva de malla",
-      "p4note": "Energía de techwear antes del techwear completo.",
+      "p3note": "Compacto, lindo y muy colorido.",
+      "p4": "Chaqueta mesh deportiva",
+      "p4note": "Energía techwear antes del techwear completo.",
       "p5": "Jeans de cintura baja",
-      "p5note": "Uno de los indicadores de era más claros.",
-      "p6": "Zapatillas plateadas",
-      "p6note": "Brillo atlético mezclado con estilo de ciencia ficción."
+      "p5note": "Uno de los indicadores de época más claros.",
+      "p6": "Tenis plateados",
+      "p6note": "Brillo atlético mezclado con estilo sci-fi."
     }
   },
   "games": {
-    "label": "sector de juegos / modo archivo",
-    "title": "juguetes del navegador, bucles de puntuación y",
+    "label": "sector juegos / modo archivo",
+    "title": "juguetes del navegador, bucles de puntaje y",
     "titleHighlight": "pequeñas obsesiones",
-    "description": "Mantuve la idea del archivo pero la hice más limpia: filtrado más fácil, tarjetas más consistentes y una presentación de cromo Y2K más fuerte.",
+    "description": "Mantuve la idea de archivo pero la hice más limpia: filtrado más fácil, tarjetas más consistentes y presentación cromo Y2K más fuerte.",
     "glitch": "glitch: {{status}}",
     "on": "activo",
     "off": "inactivo",
@@ -130,12 +133,12 @@
     "entries": {
       "e1": "Mascota de bolsillo",
       "e1note": "Hardware pequeño con mantenimiento emocional.",
-      "e2": "Portal de arcade",
-      "e2note": "Bucles rápidos, insignias y competencia.",
+      "e2": "Portal arcade",
+      "e2note": "Loops rápidos, insignias y competencia.",
       "e3": "Minijuego Flash",
       "e3note": "Pequeño, expresivo, instantáneamente compartible.",
       "e4": "Página de juguete web",
-      "e4note": "Interacción por estado de ánimo en lugar de objetivos."
+      "e4note": "Interacción por ambiente en lugar de objetivos."
     },
     "filters": {
       "all": "todos",
@@ -145,36 +148,36 @@
     }
   },
   "internet": {
-    "label": "sector de internet / modo archivo",
-    "title": "páginas personales, anillos web y",
+    "label": "sector internet / modo archivo",
+    "title": "páginas personales, web rings y",
     "titleHighlight": "enlaces perdidos",
-    "description": "Tu página separada de internet ahora se ajusta mejor a todo el proyecto: todavía nostálgica, pero más limpia y más utilizable como una interfaz de archivo real.",
+    "description": "Tu página de internet separada ahora encaja mejor con el proyecto: todavía nostálgica, pero más limpia y usable como interfaz de archivo real.",
     "searchPlaceholder": "buscar nodo de archivo...",
-    "brokenOnly": "solo roto: {{status}}",
+    "brokenOnly": "solo rotos: {{status}}",
     "randomJump": "salto aleatorio",
     "visibleNodes": "nodos visibles",
     "connected": "conectado a la web hecha a mano",
-    "jumped": "saltó a un anillo de archivo aleatorio",
+    "jumped": "saltó a un ring de archivo aleatorio",
     "nodes": {
       "n1": "Portal Flash",
-      "n2": "Callejón del libro de visitas",
-      "n3": "Sector santuario",
-      "n4": "Distrito de juguetes web",
-      "n5": "Suburbio de avatares",
+      "n2": "Callejón de libro de visitas",
+      "n3": "Sector fan shrine",
+      "n4": "Distrito juguete web",
+      "n5": "Suburbio avatares",
       "n6": "Intercambio de botones"
     }
   },
   "about": {
-    "label": "acerca de / dirección del proyecto",
-    "title": "qué fue mejorado en la",
+    "label": "sobre / dirección del proyecto",
+    "title": "qué se mejoró en la",
     "titleHighlight": "estructura del sitio",
-    "description": "El sitio ahora se comporta más como un archivo digital diseñado en lugar de páginas separadas no relacionadas. Cada sector mantiene su propio carácter, pero el sistema es más unificado y mucho más cercano a la estética Y2K chroma.",
+    "description": "El sitio ahora se comporta más como un archivo digital diseñado en lugar de páginas separadas sin relación. Cada sector mantiene su propio carácter, pero el sistema es más unificado y mucho más cerca de la estética Y2K chroma.",
     "upgrades": {
-      "u1": "nuevo shell de diseño con barra lateral + secciones modulares",
-      "u2": "paleta Y2K chroma más fuerte y superficies de cromo/cristal",
+      "u1": "nuevo layout con sidebar + secciones modulares",
+      "u2": "paleta Y2K chroma más fuerte y superficies cromo/cristal",
       "u3": "controles más interactivos en todas las páginas",
       "u4": "jerarquía tipográfica más limpia",
-      "u5": "página de archivo de internet separada integrada en el estilo general",
+      "u5": "página archivo internet separada integrada al estilo general",
       "u6": "mejor consistencia entre todos los sectores"
     }
   },
@@ -184,6 +187,39 @@
     "loading": "Cargando...",
     "language": "Idioma",
     "english": "English",
-    "spanish": "Español"
+    "spanish": "Español",
+    "russian": "Русский",
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "stop": "Detener",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "volume": "Volumen",
+    "muted": "Silenciado",
+    "unmuted": "Con sonido",
+    "nowPlaying": "Reproduciendo ahora",
+    "playlist": "Lista de reproducción",
+    "score": "Puntaje",
+    "level": "Nivel",
+    "gameOver": "¡JUEGO TERMINADO!",
+    "playAgain": "Jugar de nuevo",
+    "highScore": "Récord",
+    "newHighScore": "¡Nuevo récord!",
+    "secretMode": "¡MODO SECRETO ACTIVADO!",
+    "secretModeDesc": "¡Modo pixel activado por 8 segundos!",
+    "matrixRain": "¡Lluvia Matrix activada!",
+    "bsod": "ERROR CRÍTICO: FALLO DEL SISTEMA",
+    "y2kBug": "¡ERROR Y2K DETECTADO!",
+    "dialup": "Conectando a Internet...",
+    "youveGotMail": "✉️ ¡TIENES CORREO NUEVO!",
+    "easterEgg": "¡Huevo de Pascua activado!",
+    "crtOn": "Efecto CRT activado",
+    "crtOff": "Efecto CRT desactivado",
+    "glitchOn": "Efecto glitch activado",
+    "glitchOff": "Efecto glitch desactivado",
+    "connected": "¡Conectado a Internet!",
+    "moves": "Movimientos",
+    "youWin": "¡Ganaste!",
+    "reset": "Reiniciar"
   }
 }

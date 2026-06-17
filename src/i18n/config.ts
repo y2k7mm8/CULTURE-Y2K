@@ -3,10 +3,12 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import enTranslation from "../locales/en/translation.json";
 import esTranslation from "../locales/es/translation.json";
+import ruTranslation from "../locales/ru/translation.json";
 
 const resources = {
   en: { translation: enTranslation },
   es: { translation: esTranslation },
+  ru: { translation: ruTranslation },
 };
 
 i18n
@@ -20,6 +22,11 @@ i18n
     defaultNS: "translation",
     interpolation: {
       escapeValue: false,
+    },
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+      lookupLocalStorage: "y2k-language",
     },
   });
 

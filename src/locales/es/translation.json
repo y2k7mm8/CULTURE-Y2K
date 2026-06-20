@@ -13,7 +13,7 @@
   "home": {
     "label": "sector inicio / estructura mejorada",
     "title": "un archivo",
-    "titleHighlight": "Y2K chroma",
+    "titleHighlight": "Y2K cromo",
     "titleEnd": "con más energía, profundidad e interacción",
     "description": "Rediseñé el sitio hacia una estética de cristal cromado más fuerte: sectores claros, controles futuristas, tarjetas modulares y un ambiente de archivo más consistente.",
     "glowMode": "modo brillo: {{mode}}",
@@ -66,7 +66,10 @@
       "h4": "filtros personalizados",
       "h5": "navegación futurista Y2K",
       "h6": "sistema UI basado en brillo"
-    }
+    },
+    "epochFact": "Hecho de la época",
+    "nextFact": "Siguiente hecho →",
+    "techTrends": "Tendencias tecnológicas"
   },
   "music": {
     "label": "sector música / consola de sonido",
@@ -89,7 +92,12 @@
     },
     "tracks": "pistas",
     "favorites": "Favoritos",
-    "random": "Aleatorio"
+    "random": "Aleatorio",
+    "musicFact": "Dato musical",
+    "nextFact": "Siguiente dato →",
+    "statistics": "Estadísticas",
+    "totalTracks": "Total de pistas",
+    "totalDuration": "Duración total"
   },
   "fashion": {
     "label": "sector moda / escáner cromo",
@@ -97,6 +105,7 @@
     "titleHighlight": "futurista",
     "titleEnd": "",
     "description": "Esta sección ahora se siente más como una herramienta de diseño: cambio de paleta, tarjetas de estilo y conexión más fuerte entre moda y tecnología.",
+    "aesthetic": "Colección de estética Y2K curada: cromo, neón, efectos de vidrio y estilo futurista que definió una era.",
     "palettes": {
       "chrome": "cromo",
       "candy": "dulce",
@@ -115,7 +124,14 @@
       "p5note": "Uno de los indicadores de época más claros.",
       "p6": "Tenis plateados",
       "p6note": "Brillo atlético mezclado con estilo sci-fi."
-    }
+    },
+    "accessories": "Accesorios Y2K",
+    "styleDatabase": "Base de estilos",
+    "stylistTip": "Consejo de estilista",
+    "favorites": "❤️ Favoritos",
+    "clearAll": "Limpiar todo",
+    "selectedOnly": "Solo seleccionado",
+    "showAll": "Mostrar todo"
   },
   "games": {
     "label": "sector juegos / modo archivo",
@@ -158,6 +174,20 @@
     "visibleNodes": "nodos visibles",
     "connected": "conectado a la web hecha a mano",
     "jumped": "saltó a un ring de archivo aleatorio",
+    "epochFact": "Hecho de la época",
+    "nextFact": "Siguiente →",
+    "webDatabase": "Base de datos web",
+    "sitesFound": "sitios encontrados",
+    "statusAll": "Todos los estados",
+    "statusOnline": "En línea",
+    "statusBroken": "Roto",
+    "statusSlow": "Lento",
+    "categoryAll": "Todas las categorías",
+    "categoryEntertainment": "Entretenimiento",
+    "categorySocial": "Social",
+    "categoryTech": "Tecnología",
+    "connecting": "Conectando...",
+    "reconnect": "Reconectar",
     "nodes": {
       "n1": "Portal Flash",
       "n2": "Callejón de libro de visitas",
@@ -171,15 +201,48 @@
     "label": "sobre / dirección del proyecto",
     "title": "qué se mejoró en la",
     "titleHighlight": "estructura del sitio",
-    "description": "El sitio ahora se comporta más como un archivo digital diseñado en lugar de páginas separadas sin relación. Cada sector mantiene su propio carácter, pero el sistema es más unificado y mucho más cerca de la estética Y2K chroma.",
+    "description": "El sitio ahora se comporta más como un archivo digital diseñado en lugar de páginas separadas sin relación. Cada sector mantiene su propio carácter, pero el sistema es más unificado y mucho más cerca de la estética Y2K cromo.",
     "upgrades": {
       "u1": "nuevo layout con sidebar + secciones modulares",
-      "u2": "paleta Y2K chroma más fuerte y superficies cromo/cristal",
+      "u2": "paleta Y2K cromo más fuerte y superficies cromo/cristal",
       "u3": "controles más interactivos en todas las páginas",
       "u4": "jerarquía tipográfica más limpia",
       "u5": "página archivo internet separada integrada al estilo general",
       "u6": "mejor consistencia entre todos los sectores"
-    }
+    },
+    "featureMultilingual": "Multilingüe",
+    "featureMultilingualDesc": "Soporte completo para inglés, español y ruso con cambio instantáneo",
+    "featureGames": "Juegos interactivos",
+    "featureGamesDesc": "Juegos Snake y Memory con guardado de puntuación en localStorage",
+    "featurePlayer": "Reproductor de música",
+    "featurePlayerDesc": "Reproductor de estilo Winamp completo con visualización y lista de reproducción",
+    "featureChat": "Chat AIM",
+    "featureChatDesc": "Estilizado como AOL Instant Messenger chat con amigos",
+    "featureCRT": "Efecto CRT",
+    "featureCRTDesc": "Efecto real de viejo monitor CRT con líneas y parpadeo",
+    "featureEasterEggs": "Easter Eggs",
+    "featureEasterEggsDesc": "Características secretas: Matrix Rain, BSOD, sonidos Dial-up y You've Got Mail",
+    "epochFact": "Hecho de la época",
+    "stylistTip": "Consejo del estilista",
+    "nextFact": "Siguiente hecho →",
+    "stats": {
+      "s1": "6+",
+      "s1label": "Características secretas",
+      "s1desc": "Easter Eggs para encontrar",
+      "s2": "3",
+      "s2label": "Juegos",
+      "s2desc": "Snake, Memory y futuro",
+      "s3": "3",
+      "s3label": "Idiomas",
+      "s3desc": "English, Español, Русский",
+      "s4": "∞",
+      "s4label": "Nostalgia",
+      "s4desc": "Y2K aesthetic forever"
+    },
+    "credits": "Créditos",
+    "timeline": "Cronología Y2K",
+    "features": "Características y capacidades",
+    "selectedItem": "Elemento seleccionado"
   },
   "common": {
     "open": "abrir",
@@ -219,7 +282,11 @@
     "glitchOff": "Efecto glitch desactivado",
     "connected": "¡Conectado a Internet!",
     "moves": "Movimientos",
+    "bestScore": "Mejor puntuación",
     "youWin": "¡Ganaste!",
-    "reset": "Reiniciar"
+    "reset": "Reiniciar",
+    "pressSpaceToContinue": "Presiona ESPACIO para continuar",
+    "snakeControls": "Flechas / WASD para moverte · ESPACIO para pausa",
+    "snakeBonus": "★ Bonificación (30pts) · ⚡ Velocidad (20pts) · ❄ Lentitud (15pts)"
   }
 }

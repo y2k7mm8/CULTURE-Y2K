@@ -51,10 +51,7 @@ export const SnakeGame: React.FC = () => {
   });
 
   // Check collision
-  const checkCollision = (
-    pos: Position,
-    snakeBody: Position[],
-  ): boolean => {
+  const checkCollision = (pos: Position, snakeBody: Position[]): boolean => {
     return snakeBody.some((seg) => seg.x === pos.x && seg.y === pos.y);
   };
 
@@ -65,7 +62,10 @@ export const SnakeGame: React.FC = () => {
     let position;
     do {
       position = getRandomPosition();
-    } while (checkCollision(position, snake) || (position.x === food.x && position.y === food.y));
+    } while (
+      checkCollision(position, snake) ||
+      (position.x === food.x && position.y === food.y)
+    );
 
     const pointsMap = { bonus: 30, speed: 20, slow: 15 };
     const timerMap = { bonus: 50, speed: 80, slow: 80 };
@@ -141,7 +141,9 @@ export const SnakeGame: React.FC = () => {
         }
 
         // Check collision with self
-        if (prevSnake.some((seg) => seg.x === newHead.x && seg.y === newHead.y)) {
+        if (
+          prevSnake.some((seg) => seg.x === newHead.x && seg.y === newHead.y)
+        ) {
           gameState.endGame();
           return prevSnake;
         }
@@ -167,7 +169,11 @@ export const SnakeGame: React.FC = () => {
         }
 
         // Check special food
-        if (specialFood && newHead.x === specialFood.position.x && newHead.y === specialFood.position.y) {
+        if (
+          specialFood &&
+          newHead.x === specialFood.position.x &&
+          newHead.y === specialFood.position.y
+        ) {
           gameState.addScore(specialFood.points);
           ateSpecial = true;
           setSpecialFood(null);
@@ -352,9 +358,21 @@ export const SnakeGame: React.FC = () => {
       ctx.textAlign = "center";
       ctx.fillText("PAUSED", CANVAS_SIZE / 2, CANVAS_SIZE / 2);
       ctx.font = "14px Arial";
-      ctx.fillText("Press SPACE to continue", CANVAS_SIZE / 2, CANVAS_SIZE / 2 + 30);
+      ctx.fillText(
+        t("common.pressSpaceToContinue"),
+        CANVAS_SIZE / 2,
+        CANVAS_SIZE / 2 + 30,
+      );
     }
-  }, [snake, food, colors, direction, gameState.isPaused, gameState.gameOver, specialFood]);
+  }, [
+    snake,
+    food,
+    colors,
+    direction,
+    gameState.isPaused,
+    gameState.gameOver,
+    specialFood,
+  ]);
 
   return (
     <Window
@@ -382,7 +400,10 @@ export const SnakeGame: React.FC = () => {
           width={CANVAS_SIZE}
           height={CANVAS_SIZE}
           className="border-4 border-black rounded shadow-lg"
-          style={{ imageRendering: "pixelated", boxShadow: "0 0 20px rgba(0, 255, 0, 0.3)" }}
+          style={{
+            imageRendering: "pixelated",
+            boxShadow: "0 0 20px rgba(0, 255, 0, 0.3)",
+          }}
         />
 
         {/* Game over screen */}
@@ -397,9 +418,15 @@ export const SnakeGame: React.FC = () => {
               </p>
             )}
             <div className="text-white mb-3">
-              <p>{t("common.score")}: {gameState.score}</p>
-              <p>{t("common.level")}: {gameState.level}</p>
-              <p>{t("common.highScore")}: {gameState.highScore}</p>
+              <p>
+                {t("common.score")}: {gameState.score}
+              </p>
+              <p>
+                {t("common.level")}: {gameState.level}
+              </p>
+              <p>
+                {t("common.highScore")}: {gameState.highScore}
+              </p>
             </div>
             <button
               onClick={gameState.reset}
@@ -412,8 +439,8 @@ export const SnakeGame: React.FC = () => {
 
         {/* Controls info */}
         <div className="text-[10px] text-gray-700 text-center">
-          <p>Arrow Keys / WASD to move · SPACE to pause</p>
-          <p>★ Bonus (30pts) · ⚡ Speed (20pts) · ❄ Slow (15pts)</p>
+          <p>{t("common.snakeControls")}</p>
+          <p>{t("common.snakeBonus")}</p>
         </div>
       </div>
     </Window>

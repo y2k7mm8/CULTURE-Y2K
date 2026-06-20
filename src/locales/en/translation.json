@@ -15,7 +15,7 @@
     "title": "a",
     "titleHighlight": "Y2K chroma",
     "titleEnd": "archive with more energy, more depth and more interaction",
-    "description": "I reworked the site direction toward a stronger chrome-glass look: clearer sectors, futuristic controls, modular cards and a more consistent archive mood.",
+    "description": "The Y2K millennium bug was a feared computer glitch that threatened global chaos as the year shifted from 1999 to 2000. Early programmers used only two digits for years to save digital space, meaning computers might mistake the year 2000 (00) for 1900. Massive global interventions successfully prevented widespread critical failures. ",
     "glowMode": "glow mode: {{mode}}",
     "glowModeHigh": "high",
     "glowModeSoft": "soft",
@@ -66,7 +66,10 @@
       "h4": "custom sector filters",
       "h5": "futuristic y2k navigation",
       "h6": "glow-based ui system"
-    }
+    },
+    "epochFact": "Epoch Fact",
+    "nextFact": "Next Fact →",
+    "techTrends": "Tech Trends"
   },
   "music": {
     "label": "music sector / soundboard edition",
@@ -89,7 +92,12 @@
     },
     "tracks": "tracks",
     "favorites": "Favorites",
-    "random": "Random"
+    "random": "Random",
+    "musicFact": "Music Fact",
+    "nextFact": "Next Fact →",
+    "statistics": "Statistics",
+    "totalTracks": "Total Tracks",
+    "totalDuration": "Total Duration"
   },
   "fashion": {
     "label": "fashion sector / chroma scanner",
@@ -97,6 +105,7 @@
     "titleHighlight": "future-girl",
     "titleEnd": "styling",
     "description": "This section now has a clearer design tool feel: palette switching, styling cards and a stronger connection between fashion and technology.",
+    "aesthetic": "Curated Y2K aesthetic collection: chrome, neon, glass effects and futuristic styling that defined an era.",
     "palettes": {
       "chrome": "chrome",
       "candy": "candy",
@@ -115,7 +124,14 @@
       "p5note": "One of the clearest era signifiers.",
       "p6": "Silver sneakers",
       "p6note": "Athletic shine mixed with sci-fi styling."
-    }
+    },
+    "accessories": "Y2K Accessories",
+    "styleDatabase": "Style Database",
+    "stylistTip": "Stylist Tip",
+    "favorites": "❤️ Favorites",
+    "clearAll": "Clear All",
+    "selectedOnly": "Selected Only",
+    "showAll": "Show All"
   },
   "games": {
     "label": "games sector / archive mode",
@@ -158,6 +174,20 @@
     "visibleNodes": "visible nodes",
     "connected": "connected to the handmade web",
     "jumped": "jumped to random archive ring",
+    "epochFact": "Era Fact",
+    "nextFact": "Next →",
+    "webDatabase": "Web Database",
+    "sitesFound": "sites found",
+    "statusAll": "All Status",
+    "statusOnline": "Online",
+    "statusBroken": "Broken",
+    "statusSlow": "Slow",
+    "categoryAll": "All Categories",
+    "categoryEntertainment": "Entertainment",
+    "categorySocial": "Social",
+    "categoryTech": "Tech",
+    "connecting": "Connecting...",
+    "reconnect": "Reconnect",
     "nodes": {
       "n1": "Flash portal",
       "n2": "Guestbook alley",
@@ -179,7 +209,40 @@
       "u4": "cleaner typography hierarchy",
       "u5": "separate internet archive page integrated into the overall style",
       "u6": "better consistency between all sectors"
-    }
+    },
+    "featureMultilingual": "Multilingual support",
+    "featureMultilingualDesc": "Full support for English, Spanish and Russian with instant switching",
+    "featureGames": "Interactive games",
+    "featureGamesDesc": "Snake and Memory games with high score saving in localStorage",
+    "featurePlayer": "Music player",
+    "featurePlayerDesc": "Full-featured Winamp-style player with visualization and playlist",
+    "featureChat": "AIM Chat",
+    "featureChatDesc": "Styled as AOL Instant Messenger chat with friends",
+    "featureCRT": "CRT Effect",
+    "featureCRTDesc": "Real old CRT monitor effect with lines and flickering",
+    "featureEasterEggs": "Easter Eggs",
+    "featureEasterEggsDesc": "Secret features: Matrix Rain, BSOD, Dial-up sounds and You've Got Mail",
+    "epochFact": "Epoch Fact",
+    "stylistTip": "Stylist Tip",
+    "nextFact": "Next Fact →",
+    "stats": {
+      "s1": "6+",
+      "s1label": "Secret features",
+      "s1desc": "Easter Eggs to find",
+      "s2": "3",
+      "s2label": "Games",
+      "s2desc": "Snake, Memory and future",
+      "s3": "3",
+      "s3label": "Languages",
+      "s3desc": "English, Español, Русский",
+      "s4": "∞",
+      "s4label": "Nostalgia",
+      "s4desc": "Y2K aesthetic forever"
+    },
+    "credits": "Credits",
+    "timeline": "Y2K Timeline",
+    "features": "Features & Capabilities",
+    "selectedItem": "Selected Item"
   },
   "common": {
     "open": "open",
@@ -219,7 +282,11 @@
     "glitchOff": "Glitch effect disabled",
     "connected": "Connected to Internet!",
     "moves": "Moves",
+    "bestScore": "Best Score",
     "youWin": "You Win",
-    "reset": "Reset"
+    "reset": "Reset",
+    "pressSpaceToContinue": "Press SPACE to continue",
+    "snakeControls": "Arrow Keys / WASD to move · SPACE to pause",
+    "snakeBonus": "★ Bonus (30pts) · ⚡ Speed (20pts) · ❄ Slow (15pts)"
   }
 }

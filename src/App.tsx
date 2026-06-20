@@ -11,7 +11,12 @@ import { WinampPlayer } from "./components/features/Player/WinampPlayer";
 import { SplashIntro } from "./components/SplashIntro";
 import { useKonamiCode } from "./hooks/useKonamiCode";
 import { useEasterEggs } from "./hooks/useEasterEggs";
-import { MatrixRain, BSOD, DialUpSound, YouveGotMail } from "./components/features/EasterEggs";
+import {
+  MatrixRain,
+  BSOD,
+  DialUpSound,
+  YouveGotMail,
+} from "./components/features/EasterEggs";
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -68,9 +73,7 @@ export default function App() {
       "saturate(2.5) contrast(1.5) brightness(1.15) hue-rotate(5deg)";
     document.body.style.imageRendering = "pixelated";
     document.documentElement.classList.add("mode-8bit");
-    alert(
-      `🎮 ${t("common.secretMode")} 🎮\n\n${t("common.secretModeDesc")}`,
-    );
+    alert(`🎮 ${t("common.secretMode")} 🎮\n\n${t("common.secretModeDesc")}`);
     setTimeout(() => {
       setSecretModeActive(false);
       document.body.style.filter = "";
@@ -165,7 +168,7 @@ export default function App() {
         )}
 
         {/* Bottom Controls */}
-        <div className="fixed bottom-0 right-0 z-40 flex gap-2 p-4 bg-black/20 rounded-tl-lg">
+        {/* <div className="fixed bottom-0 right-0 z-40 flex gap-2 p-4 bg-black/20 rounded-tl-lg">
           <button
             onClick={() => setShowChat(!showChat)}
             className="px-3 py-2 bg-cyan-500/30 text-cyan-200 border border-cyan-300/50 rounded hover:bg-cyan-500/50 text-xs"
@@ -201,7 +204,7 @@ export default function App() {
           >
             📺 CRT
           </button>
-        </div>
+        </div> */}
 
         {/* Help Text */}
         <div className="fixed bottom-0 left-0 z-40 text-xs text-white/50 p-4">
@@ -209,7 +212,8 @@ export default function App() {
           <div>↑↑↓↓←→←→BA = Secret Mode</div>
           <div>C = {t("common.crtOn").replace(" enabled", "")}</div>
           <div className="mt-1 text-white/30">
-            type "matrix" = Matrix Rain | "bsod" = Blue Screen | "mail" = You've Got Mail | "dial" = Dial-up
+            type "matrix" = Matrix Rain | "bsod" = Blue Screen | "mail" = You've
+            Got Mail | "dial" = Dial-up
           </div>
         </div>
       </div>

@@ -137,14 +137,14 @@ const trackData: Track[] = [
 ];
 
 const musicFacts = [
-  "Britney Spears продала более 100 миллионов альбомов",
-  "NSYNC владеет рекордом по продажам за неделю - 2.4 миллиона",
-  "TLC, Destiny's Child и Spice Girls доминировали в R&B",
-  "Nu Metal был самым популярным жанром среди подростков",
-  "CD-R плееры позволяли записывать музыку дома",
-  "Napster революционизировал обмен музыкой",
-  "MTV был главным источником музыкального контента",
-  "TRL (Total Request Live) был самым популярным шоу",
+  "Britney Spears sold over 100 million records worldwide",
+  "NSYNC holds the record for first-week album sales with 2.4 million copies",
+  "TLC, Destiny's Child, and the Spice Girls dominated pop and R&B music",
+  "Nu Metal was one of the most popular genres among teenagers",
+  "CD-R drives allowed people to burn music at home",
+  "Napster revolutionized music sharing on the internet",
+  "MTV was the primary source of music content for young audiences",
+  "TRL (Total Request Live) was one of the most popular music shows",
 ];
 
 const genres = [
@@ -176,7 +176,7 @@ export default function Music() {
 
   // Load favorites from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('y2k-music-favorites');
+    const saved = localStorage.getItem("y2k-music-favorites");
     if (saved) {
       setFavorites(new Set(JSON.parse(saved)));
     }
@@ -184,7 +184,10 @@ export default function Music() {
 
   // Save favorites to localStorage
   useEffect(() => {
-    localStorage.setItem('y2k-music-favorites', JSON.stringify(Array.from(favorites)));
+    localStorage.setItem(
+      "y2k-music-favorites",
+      JSON.stringify(Array.from(favorites)),
+    );
   }, [favorites]);
 
   // Rotate music facts
@@ -212,11 +215,13 @@ export default function Music() {
   };
 
   const totalDuration = trackData.reduce((sum, track) => {
-    const [min, sec] = track.duration.split(':').map(Number);
+    const [min, sec] = track.duration.split(":").map(Number);
     return sum + min * 60 + sec;
   }, 0);
 
-  const avgBPM = Math.round(trackData.reduce((sum, t) => sum + t.bpm, 0) / trackData.length);
+  const avgBPM = Math.round(
+    trackData.reduce((sum, t) => sum + t.bpm, 0) / trackData.length,
+  );
 
   return (
     <div className="space-y-5">
@@ -266,7 +271,9 @@ export default function Music() {
             <div className="chrome-panel rounded-[24px] p-5 bg-gradient-to-r from-pink-500/20 to-purple-500/20">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <p className="micro-label mb-2 text-pink-200">🎵 Музыкальный факт</p>
+                  <p className="micro-label mb-2 text-pink-200">
+                    🎵 {t("music.musicFact")}
+                  </p>
                   <p className="text-base leading-7 text-white/90">
                     {musicFacts[currentFact]}
                   </p>
@@ -279,32 +286,47 @@ export default function Music() {
                 </button>
               </div>
               <button
-                onClick={() => setCurrentFact((prev) => (prev + 1) % musicFacts.length)}
+                onClick={() =>
+                  setCurrentFact((prev) => (prev + 1) % musicFacts.length)
+                }
                 className="mt-3 text-xs text-white/60 hover:text-white/90 transition"
               >
-                Следующий факт →
+                {t("music.nextFact")}
               </button>
             </div>
           </div>
 
           {/* Stats Panel */}
           <div className="chrome-panel rounded-[28px] p-5">
-            <p className="micro-label mb-4">Statistics</p>
+            <p className="micro-label mb-4">{t("music.statistics")}</p>
             <div className="space-y-3">
               <div className="bg-white/5 rounded-lg p-3">
-                <div className="text-2xl font-bold text-cyan-300">{trackData.length}</div>
-                <div className="text-xs text-white/60">Total Tracks</div>
+                <div className="text-2xl font-bold text-cyan-300">
+                  {trackData.length}
+                </div>
+                <div className="text-xs text-white/60">
+                  {t("music.totalTracks")}
+                </div>
               </div>
               <div className="bg-white/5 rounded-lg p-3">
-                <div className="text-2xl font-bold text-pink-300">{Math.floor(totalDuration / 60)}:{(totalDuration % 60).toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/60">Total Duration</div>
+                <div className="text-2xl font-bold text-pink-300">
+                  {Math.floor(totalDuration / 60)}:
+                  {(totalDuration % 60).toString().padStart(2, "0")}
+                </div>
+                <div className="text-xs text-white/60">
+                  {t("music.totalDuration")}
+                </div>
               </div>
               <div className="bg-white/5 rounded-lg p-3">
-                <div className="text-2xl font-bold text-purple-300">{avgBPM}</div>
+                <div className="text-2xl font-bold text-purple-300">
+                  {avgBPM}
+                </div>
                 <div className="text-xs text-white/60">Average BPM</div>
               </div>
               <div className="bg-white/5 rounded-lg p-3">
-                <div className="text-2xl font-bold text-lime-300">{favorites.size}</div>
+                <div className="text-2xl font-bold text-lime-300">
+                  {favorites.size}
+                </div>
                 <div className="text-xs text-white/60">Favorites</div>
               </div>
             </div>
@@ -357,8 +379,8 @@ export default function Music() {
                         track.popularity >= 98
                           ? "bg-yellow-500/20 text-yellow-200"
                           : track.popularity >= 90
-                          ? "bg-cyan-500/20 text-cyan-200"
-                          : "bg-white/10 text-white/60"
+                            ? "bg-cyan-500/20 text-cyan-200"
+                            : "bg-white/10 text-white/60"
                       }`}
                     >
                       {track.popularity}%
@@ -413,27 +435,37 @@ export default function Music() {
 
         <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-black/30 rounded-lg p-3 text-center">
-            <p className="text-2xl font-bold text-cyan-300">{selectedTrack.year}</p>
+            <p className="text-2xl font-bold text-cyan-300">
+              {selectedTrack.year}
+            </p>
             <p className="text-xs text-white/60 mt-1">Year</p>
           </div>
           <div className="bg-black/30 rounded-lg p-3 text-center">
-            <p className="text-2xl font-bold text-pink-300">{selectedTrack.bpm}</p>
+            <p className="text-2xl font-bold text-pink-300">
+              {selectedTrack.bpm}
+            </p>
             <p className="text-xs text-white/60 mt-1">BPM</p>
           </div>
           <div className="bg-black/30 rounded-lg p-3 text-center">
-            <p className="text-2xl font-bold text-purple-300">{selectedTrack.duration}</p>
+            <p className="text-2xl font-bold text-purple-300">
+              {selectedTrack.duration}
+            </p>
             <p className="text-xs text-white/60 mt-1">Duration</p>
           </div>
           <div className="bg-black/30 rounded-lg p-3 text-center">
-            <p className="text-2xl font-bold text-lime-300">{selectedTrack.popularity}%</p>
+            <p className="text-2xl font-bold text-lime-300">
+              {selectedTrack.popularity}%
+            </p>
             <p className="text-xs text-white/60 mt-1">Popularity</p>
           </div>
         </div>
 
         <div className="mt-4 px-4 py-2 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 rounded-lg">
           <p className="text-sm text-white/80">
-            <span className="font-bold text-pink-200">{selectedTrack.mood.toUpperCase()}</span> •{" "}
-            {t("music.curated")}
+            <span className="font-bold text-pink-200">
+              {selectedTrack.mood.toUpperCase()}
+            </span>{" "}
+            • {t("music.curated")}
           </p>
         </div>
       </section>
@@ -442,7 +474,9 @@ export default function Music() {
       {favorites.size > 0 && (
         <section className="chrome-panel rounded-[28px] p-5">
           <div className="flex justify-between items-center mb-4">
-            <p className="micro-label">❤️ {t("music.favorites")} ({favorites.size})</p>
+            <p className="micro-label">
+              ❤️ {t("music.favorites")} ({favorites.size})
+            </p>
             <button
               onClick={() => setFavorites(new Set())}
               className="text-xs text-white/60 hover:text-white/90"

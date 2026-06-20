@@ -13,14 +13,14 @@ interface GameCard {
   emoji: string;
   featured?: boolean;
 }
-
 const games: GameCard[] = [
   {
     id: 1,
     title: "Snake",
-    description: "Легендарная игра Nokia 3310 - собирай яблоки и не врезайся в себя!",
+    description:
+      "The legendary Nokia 3310 game — collect apples and avoid crashing into yourself!",
     year: 1997,
-    genre: "Аркада",
+    genre: "Arcade",
     popularity: 100,
     emoji: "🐍",
     featured: true,
@@ -28,9 +28,10 @@ const games: GameCard[] = [
   {
     id: 2,
     title: "Memory Game",
-    description: "Проверь свою память! Найди все пары карт за минимальное время.",
+    description:
+      "Test your memory! Match all card pairs in the shortest time possible.",
     year: 2000,
-    genre: "Головоломка",
+    genre: "Puzzle",
     popularity: 95,
     emoji: "🧠",
     featured: true,
@@ -38,43 +39,47 @@ const games: GameCard[] = [
   {
     id: 3,
     title: "The Sims",
-    description: "Симулятор жизни - создай своего персонажа и управляй его судьбой.",
+    description:
+      "Life simulation game — create your character and control their destiny.",
     year: 2000,
-    genre: "Симулятор",
+    genre: "Simulation",
     popularity: 98,
     emoji: "🏠",
   },
   {
     id: 4,
     title: "Tony Hawk's Pro Skater 2",
-    description: "Лучшая скейт-игра эпохи - трюки, парки и культовые треки.",
+    description:
+      "One of the greatest skateboarding games ever — tricks, parks, and iconic soundtracks.",
     year: 2000,
-    genre: "Спорт",
+    genre: "Sports",
     popularity: 92,
     emoji: "🛹",
   },
   {
     id: 5,
     title: "Grand Theft Auto III",
-    description: "Революционный 3D открытый мир, который изменил индустрию.",
+    description:
+      "A revolutionary open-world 3D game that changed the industry forever.",
     year: 2001,
-    genre: "Экшн",
+    genre: "Action",
     popularity: 99,
     emoji: "🚗",
   },
   {
     id: 6,
     title: "Halo: Combat Evolved",
-    description: "FPS, который сделал Xbox популярным и стал иконикой жанра.",
+    description: "The FPS that helped define Xbox and became a genre icon.",
     year: 2001,
-    genre: "Шутер",
+    genre: "Shooter",
     popularity: 97,
     emoji: "🎯",
   },
   {
     id: 7,
     title: "World of Warcraft",
-    description: "MMORPG, которая стала культурным феноменом и привлекла миллионы.",
+    description:
+      "An MMORPG that became a cultural phenomenon and attracted millions of players.",
     year: 2004,
     genre: "MMORPG",
     popularity: 96,
@@ -83,30 +88,33 @@ const games: GameCard[] = [
   {
     id: 8,
     title: "Half-Life 2",
-    description: "Технологический прорыв с гравитационной пушкой и реалистичной физикой.",
+    description:
+      "A technological breakthrough featuring the Gravity Gun and realistic physics.",
     year: 2004,
-    genre: "Шутер",
+    genre: "Shooter",
     popularity: 94,
     emoji: "🔫",
   },
 ];
 
 const gamingFacts = [
-  "PS2 стала самой продаваемой консолью всех времен - 155 млн проданных единиц",
-  "Первый Winning Eleven (PES) вышел в 2001 году",
-  "Tamagotchi был популярен среди детей и подростков",
-  "GameBoy Advance был портативной консолью эпохи",
-  "Doom 3 был пугающим технологическим прорывом 2004 года",
-  "Слэшеры вроде Resident Evil 4 изменили хоррор-жанр",
-  "Сетевой гейминг с LAN партиями был культурой эпохи",
-  "Counter-Strike 1.6 был самым популярным FPS в киберспорте",
+  "The PlayStation 2 became the best-selling console of all time with over 155 million units sold",
+  "The first Winning Eleven (PES) was released in 2001",
+  "Tamagotchi was extremely popular among children and teenagers",
+  "The Game Boy Advance was the iconic handheld console of the era",
+  "Doom 3 was a groundbreaking and terrifying technological showcase in 2004",
+  "Games like Resident Evil 4 transformed the survival horror genre",
+  "LAN parties and local multiplayer gaming were a major part of gaming culture",
+  "Counter-Strike 1.6 was the most popular competitive FPS of its time",
 ];
 
 export default function Games() {
   const { t } = useTranslation();
 
   const [selectedGame, setSelectedGame] = useState<GameCard | null>(null);
-  const [filter, setFilter] = useState<"all" | "arcade" | "shooter" | "rpg" | "sports">("all");
+  const [filter, setFilter] = useState<
+    "all" | "arcade" | "shooter" | "rpg" | "sports"
+  >("all");
   const [showFeaturedOnly, setShowFeaturedOnly] = useState(false);
   const [currentFact, setCurrentFact] = useState(0);
   const [likeFact, setLikeFact] = useState(false);
@@ -117,8 +125,8 @@ export default function Games() {
 
   // Load high scores from localStorage
   useEffect(() => {
-    const snakeScore = localStorage.getItem('y2k-snake-highscore');
-    const memoryScore = localStorage.getItem('y2k-memory-highscore');
+    const snakeScore = localStorage.getItem("y2k-snake-highscore");
+    const memoryScore = localStorage.getItem("y2k-memory-highscore");
     if (snakeScore) setHighScoreSnake(parseInt(snakeScore));
     if (memoryScore) setHighScoreMemory(parseInt(memoryScore));
   }, []);
@@ -135,10 +143,10 @@ export default function Games() {
   const filteredGames = useMemo(() => {
     let filtered = games;
     if (showFeaturedOnly) {
-      filtered = filtered.filter(g => g.featured);
+      filtered = filtered.filter((g) => g.featured);
     }
     if (filter !== "all") {
-      filtered = filtered.filter(g => {
+      filtered = filtered.filter((g) => {
         const genre = g.genre.toLowerCase();
         return genre.includes(filter) || filter === "all";
       });
@@ -165,18 +173,24 @@ export default function Games() {
             <button
               onClick={() => setPlaySnake(!playSnake)}
               className={`chrome-panel p-5 rounded-2xl transition ${
-                playSnake ? "border-cyan-400/50 bg-cyan-500/20" : "hover:scale-105"
+                playSnake
+                  ? "border-cyan-400/50 bg-cyan-500/20"
+                  : "hover:scale-105"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <div className="text-4xl mb-2">🐍</div>
                   <h3 className="window-title text-2xl text-white">Snake</h3>
-                  <p className="text-sm text-white/70 mt-1">Легендарная игра Nokia</p>
+                  <p className="text-sm text-white/70 mt-1">
+                    Легендарная игра Nokia
+                  </p>
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-white/60 mb-1">HIGH SCORE</div>
-                  <div className="text-2xl font-bold text-cyan-300">{highScoreSnake}</div>
+                  <div className="text-2xl font-bold text-cyan-300">
+                    {highScoreSnake}
+                  </div>
                 </div>
               </div>
             </button>
@@ -184,18 +198,21 @@ export default function Games() {
             <button
               onClick={() => setPlayMemory(!playMemory)}
               className={`chrome-panel p-5 rounded-2xl transition ${
-                playMemory ? "border-purple-400/50 bg-purple-500/20" : "hover:scale-105"
+                playMemory
+                  ? "border-purple-400/50 bg-purple-500/20"
+                  : "hover:scale-105"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <div className="text-4xl mb-2">🧠</div>
                   <h3 className="window-title text-2xl text-white">Memory</h3>
-                  <p className="text-sm text-white/70 mt-1">Игра на память</p>
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-white/60 mb-1">BEST TIME</div>
-                  <div className="text-2xl font-bold text-purple-300">{highScoreMemory}s</div>
+                  <div className="text-2xl font-bold text-purple-300">
+                    {highScoreMemory}s
+                  </div>
                 </div>
               </div>
             </button>
@@ -219,7 +236,9 @@ export default function Games() {
             <button
               onClick={() => setShowFeaturedOnly(!showFeaturedOnly)}
               className={`y2k-button rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.22em] ${
-                showFeaturedOnly ? "border-pink-300/50 bg-pink-300/20 text-pink-100" : "text-white/70"
+                showFeaturedOnly
+                  ? "border-pink-300/50 bg-pink-300/20 text-pink-100"
+                  : "text-white/70"
               }`}
             >
               {showFeaturedOnly ? "★ Featured Only" : "All Games"}
@@ -267,7 +286,7 @@ export default function Games() {
       <section className="chrome-panel rounded-[24px] p-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
-            <p className="micro-label mb-2 text-purple-200">🎮 Факт эпохи</p>
+            <p className="micro-label mb-2 text-purple-200">🎮 </p>
             <p className="text-base leading-7 text-white/90">
               {gamingFacts[currentFact]}
             </p>
@@ -280,10 +299,12 @@ export default function Games() {
           </button>
         </div>
         <button
-          onClick={() => setCurrentFact((prev) => (prev + 1) % gamingFacts.length)}
+          onClick={() =>
+            setCurrentFact((prev) => (prev + 1) % gamingFacts.length)
+          }
           className="mt-3 text-xs text-white/60 hover:text-white/90 transition"
         >
-          Следующий факт →
+          Next info →
         </button>
       </section>
 
@@ -291,9 +312,7 @@ export default function Games() {
       <section className="y2k-shell rounded-[30px] p-5">
         <div className="flex justify-between items-center mb-4">
           <p className="micro-label">Games Database</p>
-          <p className="text-sm text-white/60">
-            {filteredGames.length} games
-          </p>
+          <p className="text-sm text-white/60">{filteredGames.length} games</p>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {filteredGames.map((game) => (
@@ -312,8 +331,12 @@ export default function Games() {
                   <span className="text-yellow-300 text-lg">★</span>
                 )}
               </div>
-              <h3 className="window-title text-lg text-white mb-1">{game.title}</h3>
-              <p className="text-xs text-white/60 mb-2">{game.year} • {game.genre}</p>
+              <h3 className="window-title text-lg text-white mb-1">
+                {game.title}
+              </h3>
+              <p className="text-xs text-white/60 mb-2">
+                {game.year} • {game.genre}
+              </p>
               <div className="flex items-center gap-1">
                 <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
                   <div
@@ -321,7 +344,9 @@ export default function Games() {
                     style={{ width: `${game.popularity}%` }}
                   />
                 </div>
-                <span className="text-[10px] text-white/60">{game.popularity}%</span>
+                <span className="text-[10px] text-white/60">
+                  {game.popularity}%
+                </span>
               </div>
             </button>
           ))}
@@ -338,7 +363,8 @@ export default function Games() {
                 {selectedGame.emoji} {selectedGame.title}
               </h2>
               <p className="mt-2 text-sm text-white/70">
-                {selectedGame.year} • {selectedGame.genre} • {selectedGame.popularity}% Popular
+                {selectedGame.year} • {selectedGame.genre} •{" "}
+                {selectedGame.popularity}% Popular
               </p>
             </div>
             <button
@@ -354,7 +380,9 @@ export default function Games() {
           {selectedGame.featured && (
             <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/20 rounded-full">
               <span className="text-yellow-300">★</span>
-              <span className="text-xs text-yellow-200">Featured Game - Available to Play!</span>
+              <span className="text-xs text-yellow-200">
+                Featured Game - Available to Play!
+              </span>
             </div>
           )}
         </section>
